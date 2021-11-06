@@ -6,7 +6,7 @@ Session_start();
     $erabIz= $_POST['erabIzena'];
     $pasahitza= $_POST['pasahitza'];
 
-    $sql ="SELECT * FROM `Erabiltzailea` WHERE `erabIz` = '$erabIz' and `pasahitza` = '$pasahitza'";
+    $sql ="SELECT * FROM `erabiltzaile` WHERE `erabIz` = '$erabIz' and `pasahitza` = '$pasahitza'";
     $query = mysqli_query($con,$sql);
     $row = mysqli_fetch_array($query);
 

@@ -1,17 +1,36 @@
 <?php
     require 'dbkon.php'; //DBarekin konexioa egitea beharrezkoa baita
+    session_start();
 
     //POSTeko aldagaiak definitu
-    $izena= $_POST['izena'];
-    $abizena= $_POST['abizena'];
-    $emaila= $_POST['emaila'];
-    $jaiotzeData= $_POST['jaiotzeData'];
-    $nan= $_POST['nan'];
-    $telefonoZenbakia= $_POST['telefonoZenbakia'];
+    if(isset($_POST['erregistratu'])) // 'Erregistratu' botoia zapaldu bada
+    {
+        $_SESSION['izena'] = $_POST['izena'];
+        $_SESSION['abizena'] = $_POST['abizena'];
+        $_SESSION['emaila'] = $_POST['emaila'];
+        $_SESSION['jaiodat'] = $_POST['jaiotzeData'];
+        $_SESSION['nan'] = $_POST['nan'];
+        $_SESSION['telf'] = $_POST['telefonoZenbakia'];
+        header("Location: http://localhost:81/login.php");
+        exit;
+    }
+    
 
+    // EN ESTE DE ABAJO NO SE GUARDAN LOS DATOS Y CREO QUE POR ESO NO VA
+
+    //$izena= $_POST['izena'];
+    //$abizena= $_POST['abizena'];
+    //$emaila= $_POST['emaila'];
+    //$jaiotzeData= $_POST['jaiotzeData'];
+    //$nan= $_POST['nan'];
+    //$telefonoZenbakia= $_POST['telefonoZenbakia'];
+
+    
     //Hurrengo orrialdera (login.php) eraman
-    header("Location: http://localhost:81/login.php");
-    exit;
+    
+
+    
+    
 ?>
 
 
@@ -55,27 +74,27 @@
         <table>
             <tr>
                 <td>&nbsp;</td>
-                <td><input class="form-control" id="izena" type="text" name="izena" placeholder="Izena" title="Letrak soilik. ADB: Markel" ></td>
+                <td><input class="form-control" id="izena" type="text" name="izena" placeholder="Izena" title="Letrak soilik. ADB: Markel" required/></td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td><input class="form-control" id="abizena" type="text" name="abizena" placeholder="Abizena" title="Letrak soilik. ADB: Garcia" ></td>
+                <td><input class="form-control" id="abizena" type="text" name="abizena" placeholder="Abizena" title="Letrak soilik. ADB: Garcia" required/></td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td><input class="form-control" id="emaila" type="email" name="emaila" placeholder="Email-a" title="ADB: jon291@gmail.com"></td>
+                <td><input class="form-control" id="emaila" type="email" name="emaila" placeholder="Email-a" title="ADB: jon291@gmail.com" required/></td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td><input class="form-control" id="jaiotzeData" type="text" name="jaiotzeData" placeholder="Jaiotze Data" pattern="[0-9]{4}[/]{1}[0-9]{2}[/]{1}[0-9]{2}" title="UUUU/HH/EE   ADB: 2021/01/18"></td>
+                <td><input class="form-control" id="jaiotzeData" type="text" name="jaiotzeData" placeholder="Jaiotze Data" pattern="[0-9]{4}[/]{1}[0-9]{2}[/]{1}[0-9]{2}" title="UUUU/HH/EE   ADB: 2021/01/18" required/></td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td><input class="form-control" id="nan" type="text" name="nan" placeholder="Sartu ezazu zure NAN" pattern="[0-9]{8}[A-Za-z]{1}" maxlenght="9"title="8 zenbaki eta letra 1. ADB: 55255754k" /></td>
+                <td><input class="form-control" id="nan" type="text" name="nan" placeholder="Sartu ezazu zure NAN" pattern="[0-9]{8}[A-Za-z]{1}" maxlenght="9"title="8 zenbaki eta letra 1. ADB: 55255754k" required/></td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
@@ -86,7 +105,7 @@
                     <option value="">+850</option>
                     <option value="">+972</option>
                 </select>   
-                <input class="form-control" id="telefonoZenbakia" type="tel" name="telefonoZenbakia" placeholder="Telefono Zenbakia" maxlenght="9" pattern="[0-9]{9}" title="9 zenbakiz osatuta." ></td>
+                <input class="form-control" id="telefonoZenbakia" type="tel" name="telefonoZenbakia" placeholder="Telefono Zenbakia" maxlenght="9" pattern="[0-9]{9}" title="9 zenbakiz osatuta." required/></td>
                 <td>&nbsp;</td>
             </tr>
             <tr>

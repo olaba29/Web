@@ -1,24 +1,56 @@
 <?php
     require 'dbkon.php'; //DBarekin konexioa egitea beharrezkoa baita
 
+session_start(); // Session global variable erabili ahal izateko
+
+
     //Aldez aurretik index-etik lortutako aldagaik baditugu, orain erabiltzaile izena eta pasahitza lortuko ditugu
+    
     $erabIzena= $_POST['erabIzena'];
     $pasahitza= $_POST['pasahitza'];
     $pasahitzaBer= $_POST['pasahitzaBer'];
+    $izena = $_SESSION['izena'];
+    $abizena = $_SESSION['abizena'];
+    $emaila = $_SESSION['emaila'];
+    $jdat =  $_SESSION['jaiodat'];
+    $nan = $_SESSION['nan'];
+    $tel = $_SESSION['telf'];
+
+
+
 
     if($pasahitza == $pasahitzaBer){
         // Komandoa prestatu
-        $sql = "INSERT INTO erabiltzaile (erabIz, pasahitza, izena, abizena, telefonoa, nan, jaioData, emaila) VALUES ('$erabIzena', '$pasahitza', '$izena','$abizena','$telefonoZenbakia','$nan','$jaiotzeData','$emaila')";
-        
-        if(mysqli_query($con, $sql)){
-            echo "Datuak DBan gorde dira.";
-            $_SESSION['erabIz'] = $erabIzena;  // Session aldagaian gordetzen dugu erabiltzailearen nickname-a
-            header("Location: http://localhost:81/erabileremu.php");
-            exit;
-        } else{
-            echo "ERROR: Ezin izan dira datuak ondo sartu DBan.";
+
+
+        // FALTA QUE COMPRUEBE SI ESTA ESE NOMBRE DE USUARIO YA!!!!!
+
+        $sql ="SELECT * FROM `erabiltzaile` WHERE `erabIz` = '$erabIzena'"; // Hau da konprobatzeko ea erabiltzaile izen hori hartuta dagoen edo ez.
+        $query = mysqli_query($con,$sql);
+        $row = mysqli_fetch_array($query); // Ez badago, row FALSE balioa izango du. Eta sartu ahal dugu. Bestela, erabiltzaileizena emango digu.
+
+
+
+
+
+
+        if ($row == NULL)
+        {
+            // Komandoa prestatu
+            $sql = "INSERT INTO erabiltzaile (erabIz, pasahitza, izena, abizena, telefonoa, nan, jaioData, emaila) VALUES ('$erabIzena', '$pasahitza', '$izena','$abizena','$tel','$nan','$jdat','$emaila')";
+            if (mysqli_query($con,$sql))
+            {
+                //echo "Datuak DBan gorde dira."; ECHO HAU EZ DA BEHARREZKOA
+                header("Location: http://localhost:81/erabileremu.php");
+                exit;
+            }else{
+                echo "ERROR: Ezin izan dira datuak ondo sartu DBan.";
+            }
         }
+
     }
+
+    // 
 
 ?>
 
