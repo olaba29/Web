@@ -1,6 +1,25 @@
 <?php
     require 'dbkon.php'; //DBarekin konexioa egitea beharrezkoa baita
 
+    //Aldez aurretik index-etik lortutako aldagaik baditugu, orain erabiltzaile izena eta pasahitza lortuko ditugu
+    $erabIzena= $_POST['erabIzena'];
+    $pasahitza= $_POST['pasahitza'];
+    $pasahitzaBer= $_POST['pasahitzaBer'];
+
+    if($pasahitza == $pasahitzaBer){
+        // Komandoa prestatu
+        $sql = "INSERT INTO erabiltzaile (erabIz, pasahitza, izena, abizena, telefonoa, nan, jaioData, emaila) VALUES ('$erabIzena', '$pasahitza', '$izena','$abizena','$telefonoZenbakia','$nan','$jaiotzeData','$emaila')";
+        
+        if(mysqli_query($con, $sql)){
+            echo "Datuak DBan gorde dira.";
+            $_SESSION['erabIz'] = $erabIzena;  // Session aldagaian gordetzen dugu erabiltzailearen nickname-a
+            header("Location: http://localhost:81/erabileremu.php");
+            exit;
+        } else{
+            echo "ERROR: Ezin izan dira datuak ondo sartu DBan.";
+        }
+    }
+
 ?>
 
 
@@ -57,7 +76,7 @@
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td><input id="sesioahasi" type="button" name="sesioahasi" value="Sesioa hasi" title="Eremu guztiak betetakoan sakatu" onclick="sesioaHasieratu()" /></td>
+                <td><input id="sesioahasi" type="submit" name="sesioahasi" value="Sesioa hasi" title="Eremu guztiak betetakoan sakatu" /></td>
                 <td>&nbsp;</td>
             </tr>
         </table>

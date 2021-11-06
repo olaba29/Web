@@ -3,17 +3,17 @@
 
 
 Session_start();
-    $nickname= $_POST['erabIzena'];
-    $pass= $_POST['pasahitza'];
-      
-    $sql ="SELECT * FROM `Erabiltzailea` WHERE `nickname` = '$nickname' and `pasahitza` = '$pass'";
+    $erabIz= $_POST['erabIzena'];
+    $pasahitza= $_POST['pasahitza'];
+
+    $sql ="SELECT * FROM `Erabiltzailea` WHERE `erabIz` = '$erabIz' and `pasahitza` = '$pasahitza'";
     $query = mysqli_query($con,$sql);
     $row = mysqli_fetch_array($query);
 
-    if($row['nickname']!=null){ 
-      $_SESSION['nickname'] = $nickname;  // Session aldagaian gordetzen dugu erabiltzailearen nickname-a
-      header("Location: http://localhost:81/erabileremu.php");
-      exit;      
+    if($row['erabIz']!=null){ //Erabiltzailea existitzen bada
+        $_SESSION['erabIz'] = $erabIz;  // Session aldagaian gordetzen dugu erabiltzailearen nickname-a
+        header("Location: http://localhost:81/erabileremu.php");
+        exit;      
     }
 
 ?>

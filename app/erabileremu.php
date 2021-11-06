@@ -3,15 +3,15 @@
 
 require 'dbkon.php';
 
-$query = "SELECT * FROM Erabiltzailea";
+$query = "SELECT * FROM erabiltzaile";
 $result = mysqli_query($con, $query);
 
 
 if($result-> num_rows > 0){ // Si el query da mas de 0 erabiltzailes... (como deberia)
-    while($row = mysqli_fetch_array($result)){ // Esto no lo entiendo muy bien creo que es como que itera uno a uno los eraibiltzailes 
+    while($row = mysqli_fetch_array($result)){ // Pasa por todas las rows
 
-        $nickname = $row["nickname"];
-        $mail = $row["emaila"];
+        $erabIz= $row["erabIz"];
+        $email = $row["emaila"];
 
 
 
@@ -19,13 +19,13 @@ if($result-> num_rows > 0){ // Si el query da mas de 0 erabiltzailes... (como de
         
         // **************************** FALTA METER EN EL ECHO EL NICKNAME Y EL MAIL BIEN *************************************************
 
-        echo "<tr><td>" . $nickname . "</td><td>" . $mail . "/td></tr>";
+        echo "<tr><td>" . $erabIz . "</td><td>" . $email . "/td></tr>";
     }
 
 
 }
 else{
-    echo "0 result";
+    echo "0 emaitza";
 }
 
 

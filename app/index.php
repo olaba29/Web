@@ -1,6 +1,17 @@
 <?php
     require 'dbkon.php'; //DBarekin konexioa egitea beharrezkoa baita
 
+    //POSTeko aldagaiak definitu
+    $izena= $_POST['izena'];
+    $abizena= $_POST['abizena'];
+    $emaila= $_POST['emaila'];
+    $jaiotzeData= $_POST['jaiotzeData'];
+    $nan= $_POST['nan'];
+    $telefonoZenbakia= $_POST['telefonoZenbakia'];
+
+    //Hurrengo orrialdera (login.php) eraman
+    header("Location: http://localhost:81/login.php");
+    exit;
 ?>
 
 
@@ -40,7 +51,7 @@
         
     </div>
 
-    <form name="loginak" class="inputak" action="index.php" method="POST" > <!-- No sé si hay que hacerlo con algún method en concreto?¿-->
+    <form name="loginak" class="inputak" action="index.php" method="POST" > <!-- Bere buruari parametroak pasa -->
         <table>
             <tr>
                 <td>&nbsp;</td>
@@ -75,12 +86,12 @@
                     <option value="">+850</option>
                     <option value="">+972</option>
                 </select>   
-                <input class="form-control" id="telefonoZenbakia" type="tel" name="phone" placeholder="Telefono Zenbakia" maxlenght="9" pattern="[0-9]{9}" title="9 zenbakiz osatuta." ></td>
+                <input class="form-control" id="telefonoZenbakia" type="tel" name="telefonoZenbakia" placeholder="Telefono Zenbakia" maxlenght="9" pattern="[0-9]{9}" title="9 zenbakiz osatuta." ></td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td><input id="erregistratu" type="button" name="erregistratu" value="Erregistratu" title="Sakatu baino lehen eremu guztiak beterik egon behar dira" onclick="alerta()"></td>
+                <td><input id="erregistratu" type="submit" name="erregistratu" value="Erregistratu" title="Sakatu baino lehen eremu guztiak beterik egon behar dira" ></td> <!-- Hemen berez, js funtziotik pasa beharko zen -->
                 <td>&nbsp;</td>
             </tr>
         </table>
