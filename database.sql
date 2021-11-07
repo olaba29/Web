@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: db
--- Tiempo de generación: 06-11-2021 a las 15:58:20
--- Versión del servidor: 10.6.4-MariaDB-1:10.6.4+maria~focal
--- Versión de PHP: 7.4.20
+-- Host: db
+-- Generation Time: Nov 07, 2021 at 09:49 PM
+-- Server version: 10.6.4-MariaDB-1:10.6.4+maria~focal
+-- PHP Version: 7.4.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `database`
+-- Database: `database`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `erabiltzaile`
+-- Table structure for table `erabiltzaile`
 --
 
 CREATE TABLE `erabiltzaile` (
@@ -38,21 +38,18 @@ CREATE TABLE `erabiltzaile` (
   `emaila` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `erabiltzaile`
+--
+
+INSERT INTO `erabiltzaile` (`erabIz`, `pasahitza`, `izena`, `abizena`, `telefonoa`, `nan`, `jaioData`, `emaila`) VALUES
+('martintxo', 'esku', 'Martin', 'Amezola', 678567832, '76545675J', '2001/07/12', 'martin@gmail.com'),
+('olaba', 'mano', 'Andoni', 'Olabarria', 678567832, '76545675J', '2001/07/12', 'andoni@gmail.com');
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `irakurketa`
---
-
-CREATE TABLE `irakurketa` (
-  `irakurlea` varchar(30) NOT NULL,
-  `liburua` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `liburu`
+-- Table structure for table `liburu`
 --
 
 CREATE TABLE `liburu` (
@@ -64,24 +61,27 @@ CREATE TABLE `liburu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Índices para tablas volcadas
+-- Dumping data for table `liburu`
+--
+
+INSERT INTO `liburu` (`libIz`, `egileIz`, `egileAb`, `publikazioUrte`, `orriak`) VALUES
+('El Imperio Final', 'Brandon', 'Sanderson', 2005, 500),
+('Metamorfosia', 'Franz', 'Kafka', 1916, 200),
+('Mikela Igela', 'Unknown', 'Unknown', 2010, 45);
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `erabiltzaile`
+-- Indexes for table `erabiltzaile`
 --
 ALTER TABLE `erabiltzaile`
   ADD PRIMARY KEY (`erabIz`),
   ADD UNIQUE KEY `erabIz` (`erabIz`,`nan`);
 
 --
--- Indices de la tabla `irakurketa`
---
-ALTER TABLE `irakurketa`
-  ADD PRIMARY KEY (`irakurlea`,`liburua`);
-
---
--- Indices de la tabla `liburu`
+-- Indexes for table `liburu`
 --
 ALTER TABLE `liburu`
   ADD PRIMARY KEY (`libIz`);

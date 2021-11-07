@@ -27,7 +27,17 @@
                 // Datuak aldatuko ditugu.
                 // UPDATE agenda SET telefono='662142223' , email='albesanch@mimail.com' WHERE nombre='Alberto Sanchez'
                 // Falta hacer el update aqui
-
+                $iz = $_POST['izena'];
+                $ab = $_POST['abizena'];
+                $mail = $_POST['emaila'];
+                $sql = "UPDATE `erabiltzaile` SET izena='$iz', abizena='$ab', emaila='$mail' WHERE `erabIz` = '$erabIzena'";
+                if(mysqli_query($con,$sql)) // Ondo exekutatu bada hemen sartuko da.
+                {
+                    echo "ZURE DATUAK ONDO ALDATU DIRA!!";
+                }else
+                {
+                    echo "ERROREA";
+                }
             }
         }
 
@@ -39,7 +49,7 @@
             
         //Datuak gorde
         $row = mysqli_fetch_array($result);
-        $erabIzena= "andoni";
+        $erabIzena= $row['erabIz'];
         $pasahitza= $row["pasahitza"];
         $izena = $row["izena"];
         $abizena = $row["abizena"];
