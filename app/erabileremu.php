@@ -81,7 +81,7 @@ else{
 <!-- Web Orriarren aurrekaria-->
 <head>
     <title>EHU Liburutegia - Erabiltzaile</title>
-    <link rel="stylesheet" href="styleerab.css">
+    <link rel="stylesheet" href="styleerab.css?v=<?php echo time(); ?>">
 </head>
 
 
