@@ -29,7 +29,7 @@ session_start(); // Session global variable erabili ahal izateko
     
             $sql ="SELECT * FROM `erabiltzaile` WHERE `erabIz` = '$erabIzena'"; // Hau da konprobatzeko ea erabiltzaile izen hori hartuta dagoen edo ez.
             $query = mysqli_query($con,$sql);
-            $row = mysqli_fetch_array($query); // Ez badago, row FALSE balioa izango du. Eta sartu ahal dugu. Bestela, erabiltzaileizena emango digu.
+            $row = mysqli_fetch_array($query); // Ez badago, row NULL balioa izango du. Eta sartu ahal dugu. Bestela, erabiltzaileizena emango digu.
     
     
     
