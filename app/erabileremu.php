@@ -3,7 +3,43 @@
 
 require 'dbkon.php';
 
-$query = "SELECT * FROM erabiltzaile";
+
+if(isset($_POST['aukerak']))
+{
+    $auk = $_POST['aukerak'];
+    foreach ($auk as $value)
+    {
+        // AQUI TENEMOS QUE MIRAR A VER SI EL VALOR $VALUE ES:
+        // DATALD LIBZER O LIBDATALD
+        // Y DEPENDIENDO DE ESO REENVIARLO A EL PHP CORRESPONDIENTE
+
+        if($value == "libzer")
+        {
+            header("Location: http://localhost:81/libzerrikusi.php");
+
+        }elseif($value == "datAld")
+        {
+            header("Location: http://localhost:81/datuakEditatu.php");
+        }elseif($value == "libDatAld")
+        {
+            header("Location: http://localhost:81/libDatuakAldatu.php");
+        }else
+        {
+            echo "na de na";
+        }
+    }
+}
+
+
+
+
+
+
+
+
+// ESTO DE ABAJO EN VD SUDA SI LO HACE O NO PERO VIENE BIEN TENERLO PA BASARNOS EN ELLO
+
+/*$query = "SELECT * FROM erabiltzaile";
 $result = mysqli_query($con, $query);
 
 
@@ -15,11 +51,12 @@ if($result-> num_rows > 0){ // Si el query da mas de 0 erabiltzailes... (como de
 
 
 
+
         
         
         // **************************** FALTA METER EN EL ECHO EL NICKNAME Y EL MAIL BIEN *************************************************
 
-        echo "<tr><td>" . $erabIz . "</td><td>" . $email . "/td></tr>";
+        echo "<tr><td>" . $erabIz . "</td>  <td>" . $email . "</td></tr>";
     }
 
 
@@ -27,6 +64,7 @@ if($result-> num_rows > 0){ // Si el query da mas de 0 erabiltzailes... (como de
 else{
     echo "0 emaitza";
 }
+*/
 
 
 
@@ -69,9 +107,35 @@ else{
                 <td><p style="background-color: lightblue"><strong> Erabiltzaile-Eremua </strong></p></td>
                 <td>&nbsp;</td>
             </tr>
+<!-- ***********************************************************************************************************-->
+
+            <tr>
+                <td>&nbsp;</td>
+                <td><p style="background-color: lightblue"><strong> Zer egin nahi duzu? </strong></p></td>
+                <td>&nbsp;</td>
+            </tr>
+
+            <form name="erabAukerak" class="inputak" action="erabileremu.php" method="POST">
+                <tr>
+                    <select id="aukeratu"name="aukerak[]" required> 
+                        <option value="">Ikusi zure aukerak hemen.</option>
+                        <option value="libzer">Nire liburuen zerrenda ikusi.</option> 
+                        <option value="datAld">Nire datuak aldatu.</option> 
+                        <option value="libDatAld">Liburu baten datuak aldatu.</option>
+                    </select>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input id="aukeratuBotoia" type="submit" name="Aukeratu" value="Aukeratu" title="Desplegablearen aukera bat sartu eta sakatu." /></td>
+                    <td>&nbsp;</td>
+                </tr>
+            </form>
+        
+
+
+<!-- ***********************************************************************************************************-->
         </table>
     </div>
-
 
 
 

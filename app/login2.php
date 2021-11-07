@@ -14,6 +14,8 @@ Session_start();
         $_SESSION['erabIz'] = $erabIz;  // Session aldagaian gordetzen dugu erabiltzailearen nickname-a
         header("Location: http://localhost:81/erabileremu.php");
         exit;      
+    }else{
+        echo "ERROREA: Erabiltzaile hori ez da existitzen!!";
     }
 
 ?>

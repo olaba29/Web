@@ -48,6 +48,8 @@ session_start(); // Session global variable erabili ahal izateko
                 }else{
                     echo "ERROREA: Ezin izan dira datuak ondo sartu DBan.";
                 }
+            }else {
+                echo "ERROREA: Sartutako erabiltzailea existitzen da, saiatu beste batekin!!";
             }
     
         }
