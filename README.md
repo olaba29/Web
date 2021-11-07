@@ -2,7 +2,7 @@
 
 Taldekideak: **Martin Amezola** eta **Andoni Olabarria**.
 
-*DOCKER BIDEZ HEDATZEKO INSTRUKZIOAK*
+*DOCKER BIDEZ HEDATZEKO INSTRUKZIOAK:*
 
 	1. Proiektuaren karpeta barruan kokatu terminalaren bidez (docker-lamp barruan).
 	2. Behin barruan, sudo docker build -t="web" . komandoa exekutatu eta zure pasahitza sartu hau baimentzeko.
