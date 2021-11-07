@@ -71,7 +71,6 @@ else{
 
 ?>
 
-
 <!DOCTYPE html>
 <!-- Goikoaren bidez artxiboaren extensioa espezifikatzen dugu (Badaezpada) -->
 
@@ -108,56 +107,36 @@ else{
                 <td><p style="background-color: lightblue"><strong> Erabiltzaile-Eremua </strong></p></td>
                 <td>&nbsp;</td>
             </tr>
+        </table>
 <!-- ***********************************************************************************************************-->
-
-            <tr>
-                <td>&nbsp;</td>
-                <td><p style="background-color: lightblue"><strong> Zer egin nahi duzu? </strong></p></td>
-                <td>&nbsp;</td>
-            </tr>
-
-            <form name="erabAukerak" class="inputak" action="erabileremu.php" method="POST">
+        <div class="inputak">
+            <table>
                 <tr>
-                    <select id="aukeratu"name="aukerak[]" required> 
-                        <option value="">Ikusi zure aukerak hemen.</option>
-                        <option value="libzer">Nire liburuen zerrenda ikusi.</option> 
-                        <option value="datAld">Nire datuak aldatu.</option> 
-                        <option value="libDatAld">Liburu baten datuak aldatu.</option>
-                    </select>
+                    <td>&nbsp;</td>
+                    <td><p style="background-color: lightblue"><strong> DATUEN ALDAKETA </strong></p></td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
-                    <td><input id="aukeratuBotoia" type="submit" name="Aukeratu" value="Aukeratu" title="Desplegablearen aukera bat sartu eta sakatu." /></td>
+                    <td> Hautatu bat eta botoia klikatu </td>
                     <td>&nbsp;</td>
                 </tr>
-            </form>
-        
-
-
+                <form name="erabAukerak" class="inputak" action="erabileremu.php" method="POST">
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td><select id="aukeratu"name="aukerak[]" required> 
+                            <option value="">Ikusi zure aukerak hemen.</option>
+                            <option value="libzer">Nire liburuen zerrenda ikusi.</option> 
+                            <option value="datAld">Nire datuak aldatu.</option> 
+                            <option value="libDatAld">Liburu baten datuak aldatu.</option>
+                        </select></td>
+                        <td><input id="aukeratuBotoia" type="submit" name="Aukeratu" value="Aukeratu" title="Desplegablearen aukera bat sartu eta sakatu." /></td>
+                    </tr>
+                </form>
+            </table>
+        </div>
+    </div>
 <!-- ***********************************************************************************************************-->
-        </table>
-    </div>
-
-
-
-
-
-    <div class="datuAld">
-        <table>
-            <tr>
-                <td>&nbsp;</td>
-                <td>Daturen bat aldatu nahi duzu?</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-
-            </tr>
-        </table>
-    </div>
-
-    <div class="botoiak">
-        
-    </div>
 </body>
     
 </div>
