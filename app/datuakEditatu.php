@@ -72,9 +72,19 @@
         </div>
         <div class="php">
             <table>
+                <tr>
+		            <th>ErabIz </th>
+		            <th>Pasahitza</th>
+		            <th>Izena</th>
+		            <th>Abizena</th>
+		            <th>Emaila</th>
+                    <th>JaioData</th>
+                    <th>NANa</th>
+                    <th>Telefonoa</th>
+	            </tr>
                 <?php
                     echo "<tr><td>PROBA<td><tr>";
-                    //echo "<tr><td id ='erabiltzaile izena'>" . $erabIzena . "</td><td id = 'pasahitza'>" . $pasahitza . "</td><td id = 'izena'>" . $izena . "</td></td><td id = 'abizena'>" . $abizena . "</td></td><td id = 'emaila'>" . $emaila . "</td></td><td id = 'jaiotze data'>" . $jdat . "</td></td><td id = 'nan'>" . $nan . "</td></td><td id = 'telefonoa'>" . $tel . "</td></tr>";
+                    echo "<tr><td id ='erabiltzaile izena'>" . $erabIzena . "</td><td id = 'pasahitza'>" . $pasahitza . "</td><td id = 'izena'>" . $izena . "</td></td><td id = 'abizena'>" . $abizena . "</td></td><td id = 'emaila'>" . $emaila . "</td></td><td id = 'jaiotze data'>" . $jdat . "</td></td><td id = 'nan'>" . $nan . "</td></td><td id = 'telefonoa'>" . $tel . "</td></tr>";
                 ?>
             </table>
         </div>
