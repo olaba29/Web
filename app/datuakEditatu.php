@@ -4,27 +4,29 @@
 
     $erabIzena= $_SESSION['erabIzena'];
 
-	$query = "SELECT * FROM liburuak where erabIz ='$erabIzena'";
+	$query = "SELECT * FROM erabiltzaile where erabIz ='$erabIzena'";
 	$result = mysqli_query($con, $query);
 
 
-	if($result-> num_rows > 0){
+	//if($result-> num_rows > 0){
 		
-        $row = mysqli_fetch_array($result);
-		$erabIzena= $row["erabIz"];
-        $pasahitza= $row["pasahitza"];
-        $izena = $row["izena"];
-        $abizena = $row["abizena"];
-        $emaila = $row["emaila"];
-        $jdat =  $row["jaioData"];
-        $nan = $row["nan"];
-        $tel = $row["telefonoa"];
+    //Datuak gorde
+    $row = mysqli_fetch_array($result);
+	$erabIzena= $row["erabIz"];
+    $pasahitza= $row["pasahitza"];
+    $izena = $row["izena"];
+    $abizena = $row["abizena"];
+    $emaila = $row["emaila"];
+    $jdat =  $row["jaioData"];
+    $nan = $row["nan"];
+    $tel = $row["telefonoa"];
 
-		echo "<tr><td id ='erabiltzaile izena'>" . $erabIzena . "</td><td id = 'pasahitza'>" . $pasahitza . "</td><td id = 'izena'>" . $izena . "</td></td><td id = 'abizena'>" . $abizena . "</td></td><td id = 'emaila'>" . $emaila . "</td></td><td id = 'jaiotze data'>" . $jdat . "</td></td><td id = 'nan'>" . $nan . "</td></td><td id = 'telefonoa'>" . $tel . "</td></tr>";
+    //Datuak displayatu
+	//echo "<tr><td id ='erabiltzaile izena'>" . $erabIzena . "</td><td id = 'pasahitza'>" . $pasahitza . "</td><td id = 'izena'>" . $izena . "</td></td><td id = 'abizena'>" . $abizena . "</td></td><td id = 'emaila'>" . $emaila . "</td></td><td id = 'jaiotze data'>" . $jdat . "</td></td><td id = 'nan'>" . $nan . "</td></td><td id = 'telefonoa'>" . $tel . "</td></tr>";
 		
 
 
-	}
+	//}
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +54,7 @@
 
 
     <!-- Web Orriaren gorputza-->
-<body background="https://cdn.pixabay.com/photo/2016/02/16/21/07/books-1204029__340.jpg?__cf_chl_jschl_tk__=pmd_rg0UyIVTKotZFzKXG6L7RTRiwJwdw6vwz3E1204eRgg-1635866096-0-gqNtZGzNAjujcnBszQhR">
+<body> <!-- background="https://cdn.pixabay.com/photo/2016/02/16/21/07/books-1204029__340.jpg?__cf_chl_jschl_tk__=pmd_rg0UyIVTKotZFzKXG6L7RTRiwJwdw6vwz3E1204eRgg-1635866096-0-gqNtZGzNAjujcnBszQhR" -->
     <div class="content">
         <div class="hasiera">
             <table>
@@ -66,6 +68,14 @@
                     <td><p style="background-color: lightblue"><strong> Zure datuak: </strong></p></td>
                     <td>&nbsp;</td>
                 </tr>
+            </table>
+        </div>
+        <div class="php">
+            <table>
+                <?php
+                    echo "<tr><td>PROBA<td><tr>";
+                    //echo "<tr><td id ='erabiltzaile izena'>" . $erabIzena . "</td><td id = 'pasahitza'>" . $pasahitza . "</td><td id = 'izena'>" . $izena . "</td></td><td id = 'abizena'>" . $abizena . "</td></td><td id = 'emaila'>" . $emaila . "</td></td><td id = 'jaiotze data'>" . $jdat . "</td></td><td id = 'nan'>" . $nan . "</td></td><td id = 'telefonoa'>" . $tel . "</td></tr>";
+                ?>
             </table>
         </div>
         <div class="inputak">
@@ -104,6 +114,13 @@
             </table>
             </form>
         </div>
+        <table>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
         <div class="botoiak">
             <table>
                 <tr>

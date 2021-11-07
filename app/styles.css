@@ -4,7 +4,11 @@
   max-width: 350px;
   margin: auto;
 }
-.hasiera {
+.php {
+  background-color: coral;
+  border: 2px solid black;
+  border-radius: 5px;
+  position: center;
 }
 .inputak {
   background-color: coral;
