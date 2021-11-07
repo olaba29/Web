@@ -53,36 +53,68 @@
 
     <!-- Web Orriaren gorputza-->
 <body background="https://cdn.pixabay.com/photo/2016/02/16/21/07/books-1204029__340.jpg?__cf_chl_jschl_tk__=pmd_rg0UyIVTKotZFzKXG6L7RTRiwJwdw6vwz3E1204eRgg-1635866096-0-gqNtZGzNAjujcnBszQhR">
-    <div class="hasiera">
-        <table>
+    <div class="content">
+        <div class="hasiera">
+            <table>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><p style="background-color: lightblue"><strong> LIBURUTEGIA </strong></p></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><p style="background-color: lightblue"><strong> Zure datuak: </strong></p></td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+        <div class="inputak">
+            <form action="datuakEditatu.php" method="POST">
+            <table>
             <tr>
                 <td>&nbsp;</td>
-                <td><p style="background-color: lightblue"><strong> LIBURUTEGIA </strong></p></td>
+                <td><input id="pasahitz" type="password" name="pasahitz" placeholder="Pasahitza Sartu"  title="Zure pasahitza sartu." ></td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td><p style="background-color: lightblue"><strong> <Label>LIBURU BAT SARTU</Label> </strong></p></td>
+                <td><input id="izena" type="text" name="izena" placeholder="Izena Sartu"  title="Zure izena sartu." ></td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td><p style="background-color: lightblue"><strong> Liburuaren datuak sartu ezazu. </strong></p></td>
+                <td><input id="abizena" type="text" name="abizena" placeholder="Abizena Sartu" title="Zure abizena idatzi." ></td>
                 <td>&nbsp;</td>
             </tr>
-        </table>
+            <tr>
+                <td>&nbsp;</td>
+                <td><input id="emaila" type="email" name="emaila" placeholder="Emaila Sartu" title="Zure emaila idatzi." ></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><input id="telefonoa" type="text" name="telefonoa" placeholder="Telefonoa Sartu" title="Zure telefonoa idatzi." ></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><input id="aldatu" type="submit" name="aldatu" value="Gorde" title="Aldatu nahi dena bete" /></td>
+                <td>&nbsp;</td>
+            </tr>
+            </table>
+            </form>
+        </div>
+        <div class="botoiak">
+            <table>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input id="bueltatuBot" type="button" name="bueltatuBot" value="Bueltatu" onclick="location.href='erabileremu.php'"/></td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+        </div>
     </div>
-    <div class="inputak">
-        <form action="libSartuDB.php" method="POST">
-        <table>
-            <tr>
-                <td>&nbsp;</td>
-                <td><input id="bueltatuBot" type="button" name="bueltatuBot" value="Bueltatu" onclick="location.href='erabileremu.php'"/></td>
-                <td>&nbsp;</td>
-            </tr>
-        </table>
-        </form>
-    </div>
+
 </body>
 <!-- Html dokumentuaren amaiera -->
 </html>
