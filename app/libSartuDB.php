@@ -66,7 +66,7 @@
 
     <!-- Web Orriaren gorputza-->
 <body background="https://cdn.pixabay.com/photo/2016/02/16/21/07/books-1204029__340.jpg?__cf_chl_jschl_tk__=pmd_rg0UyIVTKotZFzKXG6L7RTRiwJwdw6vwz3E1204eRgg-1635866096-0-gqNtZGzNAjujcnBszQhR">
-<div class="hasiera">
+    <div class="hasiera">
         <table>
             <tr>
                 <td>&nbsp;</td>
@@ -118,9 +118,14 @@
                 <td><input id="sartuBotoia" type="submit" name="sartuBotoia" value="Datu Basean Sartu"></td>
                 <td>&nbsp;</td>
             </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><input id="bueltatuBot" type="button" name="bueltatuBot" value="Bueltatu" onclick="location.href='libDatuakAldatu.php'"/></td>
+                <td>&nbsp;</td>
+            </tr>
         </table>
         </form>
     </div>
-
+</body>
 <!-- Html dokumentuaren amaiera -->
 </html>

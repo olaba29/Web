@@ -133,6 +133,18 @@ else{
                         <td><input id="aukeratuBotoia" type="submit" name="Aukeratu" value="Aukeratu" title="Desplegablearen aukera bat sartu eta sakatu." /></td>
                     </tr>
                 </form>
+
+                <tr>
+            </tr>
+            </table>
+        </div>
+        <div class="botoiak">
+            <table>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input id="bueltatuBot" type="button" name="bueltatuBot" value="Sesioa Itxi" onclick="location.href='index.php'"/></td>
+                    <td>&nbsp;</td>
+                </tr>
             </table>
         </div>
     </div>

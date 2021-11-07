@@ -87,6 +87,12 @@
                 </tr>
             </form>
 
+            <tr>
+                <td>&nbsp;</td>
+                <td><input id="bueltatuBot" type="button" name="bueltatuBot" value="Bueltatu" onclick="location.href='erabileremu.php'"/></td>
+                <td>&nbsp;</td>
+            </tr>
+
             
         
 
