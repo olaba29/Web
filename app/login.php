@@ -5,7 +5,8 @@ session_start(); // Session global variable erabili ahal izateko
 
 
     //Aldez aurretik index-etik lortutako aldagaik baditugu, orain erabiltzaile izena eta pasahitza lortuko ditugu
-    
+    $_SESSION['erabIzena'] = $_POST['erabIzena'];
+    $_SESSION['pasahitza'] = $_POST['pasahitza'];
     $erabIzena= $_POST['erabIzena'];
     $pasahitza= $_POST['pasahitza'];
     $pasahitzaBer= $_POST['pasahitzaBer'];
