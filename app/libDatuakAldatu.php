@@ -50,7 +50,7 @@
 
     <!-- Web Orriaren gorputza-->
 <body background="https://cdn.pixabay.com/photo/2016/02/16/21/07/books-1204029__340.jpg?__cf_chl_jschl_tk__=pmd_rg0UyIVTKotZFzKXG6L7RTRiwJwdw6vwz3E1204eRgg-1635866096-0-gqNtZGzNAjujcnBszQhR">
-<div class="hasiera">
+    <div class="content">
         <table>
             <tr>
                 <td>&nbsp;</td>
@@ -69,37 +69,42 @@
                 <td><p style="background-color: lightblue"><strong> Hemen liburu bat editatu edo datu basera sartu dezakezu. </strong></p></td>
                 <td>&nbsp;</td>
             </tr>
-
-        
-
-            <form name="editatuAukerak" class="inputak" action="libDatuakAldatu.php" method="POST">
-                <tr>
-                    <select id="libEditAuk"name="auk[]" required> 
-                        <option value="">Ikusi zure aukerak hemen.</option>
-                        <option value="sartu">Liburu bat sartu datu basean.</option> 
-                        <option value="aldatu">Liburu baten datuak aldatu.</option> 
-                    </select>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td><input id="Joan" type="submit" name="Joan" value="Joan" title="Desplegablearen aukera bat sartu eta sakatu." /></td>
-                    <td>&nbsp;</td>
-                </tr>
-            </form>
-
             <tr>
                 <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr> 
+            <tr>
+                <form name="editatuAukerak" class="inputak" action="libDatuakAldatu.php" method="POST">
+                <table>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <select id="libEditAuk"name="auk[]" required> 
+                            <option value="">Ikusi zure aukerak hemen.</option>
+                            <option value="sartu">Liburu bat sartu datu basean.</option> 
+                            <option value="aldatu">Liburu baten datuak aldatu.</option> 
+                        </select>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td><input id="Joan" type="submit" name="Joan" value="Joan" title="Desplegablearen aukera bat sartu eta sakatu." /></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr> 
+                </table>
+                </form>
+            </tr>
+            <tr>
                 <td><input id="bueltatuBot" type="button" name="bueltatuBot" value="Bueltatu" onclick="location.href='erabileremu.php'"/></td>
                 <td>&nbsp;</td>
             </tr>
 
-            
-        
-
-
-<!-- ***********************************************************************************************************-->
         </table>
     </div>
-
+</body>
 <!-- Html dokumentuaren amaiera -->
 </html>

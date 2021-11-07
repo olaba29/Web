@@ -4,11 +4,14 @@
   max-width: 350px;
   margin: auto;
 }
+
 .php {
-  background-color: coral;
+  background-color: skyblue;
   border: 2px solid black;
   border-radius: 5px;
   position: center;
+  max-width: 600px;
+  margin: auto;
 }
 .inputak {
   background-color: coral;

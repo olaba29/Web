@@ -50,7 +50,7 @@
 <!-- Web Orriarren aurrekaria-->
 <head>
     <title>LIBURU BAT SARTU</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"?v=<?php echo time(); ?>">
 </head>
 
 <script type=“text/javascript” src="script2.js" ></script>
@@ -66,65 +66,67 @@
 
     <!-- Web Orriaren gorputza-->
 <body background="https://cdn.pixabay.com/photo/2016/02/16/21/07/books-1204029__340.jpg?__cf_chl_jschl_tk__=pmd_rg0UyIVTKotZFzKXG6L7RTRiwJwdw6vwz3E1204eRgg-1635866096-0-gqNtZGzNAjujcnBszQhR">
-    <div class="hasiera">
-        <table>
-            <tr>
-                <td>&nbsp;</td>
-                <td><p style="background-color: lightblue"><strong> LIBURUTEGIA </strong></p></td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td><p style="background-color: lightblue"><strong> <Label>LIBURU BAT SARTU</Label> </strong></p></td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td><p style="background-color: lightblue"><strong> Liburuaren datuak sartu ezazu. </strong></p></td>
-                <td>&nbsp;</td>
-            </tr>
-        </table>
-    </div>
-    <div class="inputak">
-        <form action="libSartuDB.php" method="POST">
-        <table>
-            <tr>
-                <td>&nbsp;</td>
-                <td><input name="libIzena" id="libIzena" type="text"  placeholder="Liburuaren Izena" title="Liburuaren Izena, ADB: Metamorfosia"required/></td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td><input id="author" type="text" name="author" placeholder="Idazlea"  title="Liburuaren Idazlea, ADB: Franz" required/></td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td><input id="authorSur" type="text" name="authorSur" placeholder="Idazlearen Abizena" title="Idazlearen Abizena, ADB: Kafka" required/></td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td><input id="publikUrte" type="text" name="publikUrte" placeholder="Publikazio Urtea" title="Publikazio Urtea, ADB: 1916"required/></td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td><input id="orrikop" type="number" name="orrikop" value="Orri kopurua" title="Liburuaren orri kopurua."required/></td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td><input id="sartuBotoia" type="submit" name="sartuBotoia" value="Datu Basean Sartu"></td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td><input id="bueltatuBot" type="button" name="bueltatuBot" value="Bueltatu" onclick="location.href='libDatuakAldatu.php'"/></td>
-                <td>&nbsp;</td>
-            </tr>
-        </table>
-        </form>
+    <div class="content">  
+        <div class="hasiera">
+            <table>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><p style="background-color: lightblue"><strong> LIBURUTEGIA </strong></p></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><p style="background-color: lightblue"><strong> <Label>LIBURU BAT SARTU</Label> </strong></p></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><p style="background-color: lightblue"><strong> Liburuaren datuak sartu ezazu. </strong></p></td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+        <div class="inputak">
+            <form action="libSartuDB.php" method="POST">
+            <table>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input name="libIzena" id="libIzena" type="text"  placeholder="Liburuaren Izena" title="Liburuaren Izena, ADB: Metamorfosia"required/></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input id="author" type="text" name="author" placeholder="Idazlea"  title="Liburuaren Idazlea, ADB: Franz" required/></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input id="authorSur" type="text" name="authorSur" placeholder="Idazlearen Abizena" title="Idazlearen Abizena, ADB: Kafka" required/></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input id="publikUrte" type="text" name="publikUrte" placeholder="Publikazio Urtea" title="Publikazio Urtea, ADB: 1916"required/></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input id="orrikop" type="number" name="orrikop" value="Orri kopurua" title="Liburuaren orri kopurua."required/></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input id="sartuBotoia" type="submit" name="sartuBotoia" value="Datu Basean Sartu"></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input id="bueltatuBot" type="button" name="bueltatuBot" value="Bueltatu" onclick="location.href='libDatuakAldatu.php'"/></td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            </form>
+        </div>
     </div>
 </body>
 <!-- Html dokumentuaren amaiera -->
