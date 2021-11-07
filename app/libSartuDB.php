@@ -105,7 +105,7 @@
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td><input id="publikUrte" type="text" name="piblikUrte" placeholder="Publikazio Urtea" title="Publikazio Urtea, ADB: 1916"required/></td>
+                <td><input id="publikUrte" type="text" name="publikUrte" placeholder="Publikazio Urtea" title="Publikazio Urtea, ADB: 1916"required/></td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
