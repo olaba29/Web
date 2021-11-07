@@ -2,24 +2,57 @@
 
     require 'dbkon.php'; //DBarekin konexioa egitea beharrezkoa baita
 
-    $erabIzena= $_SESSION['erabIzena'];
 
-	$query = "SELECT * FROM erabiltzaile where erabIz ='$erabIzena'";
-	$result = mysqli_query($con, $query);
+    Session_start();
+
+    if(isset($_POST['aldatu']))
+    {
+
+        $erabIzena = $_POST['erab'];
+        $pass = $_POST['pasahitz'];
+
+        // Begiratzen dugu ea erabiltzailea eta pasahitza ondo sartu dituen...
+
+        $sql = "SELECT * FROM `erabiltzaile` WHERE `erabIz` = '$erabIzena'"; // Bilatzen dugu erabiltzailea DB-an.
+        $query = mysqli_query($con,$sql);
+        $row = mysqli_fetch_array($query); // Ez badago, $row null, bestela array bat izango da datuekin.
+
+        if($row == null) 
+        {
+            echo "Erabiltzaile hori ez dago datu basean, txarto sartu duzu.";
+        }
+        else{ // Erabiltzailea ondo sartu du, begiratuko dugu ea pasahitza ondo sartu duen.
+            if ($pass == $row['pasahitza']) // Hemendik pasatzen bada, esan nahi du erabiltzailea eta pasahitza ondo daudela.
+            {
+                // Datuak aldatuko ditugu.
+                // UPDATE agenda SET telefono='662142223' , email='albesanch@mimail.com' WHERE nombre='Alberto Sanchez'
+                // Falta hacer el update aqui
+
+            }
+        }
+
+        $query = "SELECT * FROM erabiltzaile where erabIz ='$erabIzena'";
+        $result = mysqli_query($con, $query);
+    
+    
+        //if($result-> num_rows > 0){
+            
+        //Datuak gorde
+        $row = mysqli_fetch_array($result);
+        $erabIzena= "andoni";
+        $pasahitza= $row["pasahitza"];
+        $izena = $row["izena"];
+        $abizena = $row["abizena"];
+        $emaila = $row["emaila"];
+        $jdat =  $row["jaioData"];
+        $nan = $row["nan"];
+        $tel = $row["telefonoa"];
 
 
-	//if($result-> num_rows > 0){
-		
-    //Datuak gorde
-    $row = mysqli_fetch_array($result);
-	$erabIzena= "andoni";
-    $pasahitza= $row["pasahitza"];
-    $izena = $row["izena"];
-    $abizena = $row["abizena"];
-    $emaila = $row["emaila"];
-    $jdat =  $row["jaioData"];
-    $nan = $row["nan"];
-    $tel = $row["telefonoa"];
+
+
+    }
+    
 	//}
 ?>
 
@@ -88,32 +121,32 @@
             <table>
             <tr>
                 <td>&nbsp;</td>
-                <td><input id="pasahitz" type="password" name="pasahitz" placeholder="Pasahitza Sartu"  title="Zure pasahitza sartu." ></td>
+                <td><input id="erab" type="text" name="erab" placeholder="Erabiltzaile izena sartu."  title="Erabiltzaile izena sartu" required/></td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td><input id="izena" type="text" name="izena" placeholder="Izena Sartu"  title="Zure izena sartu." ></td>
+                <td><input id="pasahitz" type="password" name="pasahitz" placeholder="Pasahitza Sartu"  title="Zure pasahitza sartu." required/></td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td><input id="abizena" type="text" name="abizena" placeholder="Abizena Sartu" title="Zure abizena idatzi." ></td>
+                <td><input id="izena" type="text" name="izena" placeholder="Izena Sartu"  title="Zure izena sartu." required/></td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td><input id="emaila" type="email" name="emaila" placeholder="Emaila Sartu" title="Zure emaila idatzi." ></td>
+                <td><input id="abizena" type="text" name="abizena" placeholder="Abizena Sartu" title="Zure abizena idatzi." required/></td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td><input id="telefonoa" type="text" name="telefonoa" placeholder="Telefonoa Sartu" title="Zure telefonoa idatzi." ></td>
+                <td><input id="emaila" type="email" name="emaila" placeholder="Emaila Sartu" title="Zure emaila idatzi." required/></td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td><input id="aldatu" type="submit" name="aldatu" value="Gorde" title="Aldatu nahi dena bete" /></td>
+                <td><input id="aldatu" type="submit" name="aldatu" value="Gorde"  /></td>
                 <td>&nbsp;</td>
             </tr>
             </table>
