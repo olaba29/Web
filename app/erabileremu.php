@@ -27,6 +27,7 @@ if(isset($_POST['aukerak']))
         {
             echo "na de na";
         }
+        exit;
     }
 }
 
