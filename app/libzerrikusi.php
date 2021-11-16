@@ -31,7 +31,24 @@
 
     <!-- Web Orriaren gorputza-->
 <body background="https://cdn.pixabay.com/photo/2016/02/16/21/07/books-1204029__340.jpg?__cf_chl_jschl_tk__=pmd_rg0UyIVTKotZFzKXG6L7RTRiwJwdw6vwz3E1204eRgg-1635866096-0-gqNtZGzNAjujcnBszQhR">
-
-
+    <div class="inputak">
+        <table>
+            <tr>
+                <td>&nbsp;</td>
+                <td><p style="background-color: lightblue"><strong> LIBURUEN ZERRENDA </strong></p></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <form name="erabAukerak" class="inputak" action="erabileremu.php" method="POST">
+                    <tr>
+                        <td>&nbsp;</td>
+                        <input id="bilatu" type="text" name="bilatu" placeholder="Bilatu liburu bat." title="Letrak soilik. ADB: Garcia" required/>
+                        <td><input id="bilatuButton" type="submit" name="bilatuButton" value="Bilatu" title="Sakatu hemen liburua bilatzeko." /></td>
+                    </tr>
+                </form>
+                </tr>
+        </table>
+    </div>
+</body>
 <!-- Html dokumentuaren amaiera -->
 </html>

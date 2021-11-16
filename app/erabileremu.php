@@ -142,7 +142,7 @@ else{
             <table>
                 <tr>
                     <td>&nbsp;</td>
-                    <td><input id="bueltatuBot" type="button" name="bueltatuBot" value="Sesioa Itxi" onclick="location.href='index.php'"/></td>
+                    <td><input id="bueltatuBot" type="button" name="bueltatuBot" value="Saioa Itxi" onclick="location.href='index.php'"/></td>
                     <td>&nbsp;</td>
                 </tr>
             </table>

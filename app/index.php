@@ -139,7 +139,7 @@
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td><input id="sesioahasi" type="button" name="sesioahasi" value="Sesioa hasi" onclick="location.href='login2.php' " /></td>
+                <td><input id="sesioahasi" type="button" name="sesioahasi" value="Saioa hasi" onclick="location.href='login2.php' " /></td>
                 <td>&nbsp;</td>
             </tr>
         </table> 

@@ -73,7 +73,7 @@ Session_start();
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td><input id="sesioahasi" type="submit" name="sesioahasi" value="Sesioa hasi" title="Eremu guztiak betetakoan sakatu" /></td>
+                <td><input id="sesioahasi" type="submit" name="sesioahasi" value="Saioa hasi" title="Eremu guztiak betetakoan sakatu" /></td>
                 <td>&nbsp;</td>
             </tr>
         </table>
