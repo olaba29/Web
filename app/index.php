@@ -45,7 +45,7 @@
 <head>
     <title>EHU Liburutegia - Sarrera</title>
     <link rel="stylesheet" href="styles.css">
-    <script type=“text/javascript” src="script.js" ></script> 
+    <script src="app/script.js" defer></script> 
 </head>
 
 
