@@ -24,17 +24,9 @@ session_start(); // Session global variable erabili ahal izateko
     {
         if($pasahitza == $pasahitzaBer){
             // Komandoa prestatu
-    
-    
-            // FALTA QUE COMPRUEBE SI ESTA ESE NOMBRE DE USUARIO YA!!!!!
-    
             $sql ="SELECT * FROM `erabiltzaile` WHERE `erabIz` = '$erabIzena'"; // Hau da konprobatzeko ea erabiltzaile izen hori hartuta dagoen edo ez.
             $query = mysqli_query($con,$sql);
             $row = mysqli_fetch_array($query); // Ez badago, row NULL balioa izango du. Eta sartu ahal dugu. Bestela, erabiltzaileizena emango digu.
-    
-    
-    
-    
     
     
             if ($row == NULL)
@@ -54,9 +46,7 @@ session_start(); // Session global variable erabili ahal izateko
             }
     
         }
-    }
-
-    // 
+    } 
 
 ?>
 
