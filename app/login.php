@@ -32,7 +32,10 @@ session_start(); // Session global variable erabili ahal izateko
             if ($row == NULL)
             {
                 // Komandoa prestatu
-                $sql = "INSERT INTO erabiltzaile (erabIz, pasahitza, izena, abizena, telefonoa, nan, jaioData, emaila) VALUES ('$erabIzena', '$pasahitza', '$izena','$abizena','$tel','$nan','$jdat','$emaila')";
+                
+                // pasahitza hasheatu egingo dugu seguruago izateko
+                $pass_hasheatuta = password_hash($pasahitza, PASSWORD_DEFAULT);
+                $sql = "INSERT INTO erabiltzaile (erabIz, pasahitza, izena, abizena, telefonoa, nan, jaioData, emaila) VALUES ('$erabIzena', '$pass_hasheatuta', '$izena','$abizena','$tel','$nan','$jdat','$emaila')";
                 if (mysqli_query($con,$sql))
                 {
                     //echo "Datuak DBan gorde dira."; ECHO HAU EZ DA BEHARREZKOA
@@ -42,7 +45,7 @@ session_start(); // Session global variable erabili ahal izateko
                     echo "ERROREA: Ezin izan dira datuak ondo sartu DBan.";
                 }
             }else {
-                echo "ERROREA: Sartutako erabiltzailea existitzen da, saiatu beste batekin!!";
+                alert("ERROREA: Sartutako erabiltzailea existitzen da, saiatu beste batekin!!"); 
             }
     
         }

@@ -5,8 +5,9 @@
 Session_start();
     $erabIz= $_POST['erabIzena'];
     $pasahitza= $_POST['pasahitza'];
+    $pasahitza_hasheatuta = password_hash($pasahitza, PASSWORD_DEFAULT);
 
-    $sql ="SELECT * FROM `erabiltzaile` WHERE `erabIz` = '$erabIz' and `pasahitza` = '$pasahitza'";
+    $sql ="SELECT * FROM `erabiltzaile` WHERE `erabIz` = '$erabIz' and `pasahitza` = '$pasahitza_hasheatuta'";
     $query = mysqli_query($con,$sql);
     $row = mysqli_fetch_array($query);
 
@@ -17,7 +18,7 @@ Session_start();
             header("Location: http://localhost:81/erabileremu.php");
             exit;      
         }else{
-            echo "ERROREA: Erabiltzaile hori ez da existitzen!!";
+            echo "ERROREA: Erabiltzaile hori ez da existitzen!!"; 
         }
     }
     
@@ -63,12 +64,12 @@ Session_start();
         <table>
             <tr>
                 <td>&nbsp;</td>
-                <td><input id="erabIzena" type="text" name="erabIzena" placeholder="Erabiltzaile Izena" title="Erabiltzaile izena sartu. ABD: mikgar19" ></td>
+                <td><input id="erabIzena" type="text" name="erabIzena" placeholder="Erabiltzaile Izena" title="Erabiltzaile izena sartu. ABD: mikgar19" required></td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td><input id="pasahitza" type="password" name="pasahitza" placeholder="Pasahitza Sartu" title="Zure pasahitza sartu." ></td>
+                <td><input id="pasahitza" type="password" name="pasahitza" placeholder="Pasahitza Sartu" title="Zure pasahitza sartu." required></td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
