@@ -2,20 +2,25 @@
     require 'dbkon.php'; //DBarekin konexioa egitea beharrezkoa baita
 
 
+
+    // para arreglar A1: Ataque inyeccion SQL https://es.stackoverflow.com/questions/18232/c%C3%B3mo-evitar-la-inyecci%C3%B3n-sql-en-php
+
+    
 Session_start();
     $erabIz= $_POST['erabIzena'];
     $pasahitza= $_POST['pasahitza'];
     $pasahitza_hasheatuta = password_hash($pasahitza, PASSWORD_DEFAULT);
 
-    $sql ="SELECT * FROM `erabiltzaile` WHERE `erabIz` = '$erabIz' and `pasahitza` = '$pasahitza_hasheatuta'";
+    $sql ="SELECT * FROM `erabiltzaile` WHERE `erabIz` = '$erabIz'";
     $query = mysqli_query($con,$sql);
+    $nr = mysqli_num_rows($query); // nr aldagaian 1 erabiltzailea aurkitu bada 0 erabiltzailea ez bada aurkitu
     $row = mysqli_fetch_array($query);
 
-    if(isset($_POST['sesioahasi']))
+    if(isset($_POST['sesioahasi'])) // Sesioa hasi botoia ematen denean
     {
-        if($row['erabIz']!=null){ //Erabiltzailea existitzen bada
+        if(($nr == 1)&&(password_verify($pasahitza, $row['pasahitza']))){  // nr 1 bada (hau da, erabiltzailea existitzen bada) eta pasahitza ondo badago
             $_SESSION['erabIz'] = $erabIz;  // Session aldagaian gordetzen dugu erabiltzailearen nickname-a
-            header("Location: http://localhost:81/erabileremu.php");
+            header("Location: http://localhost:81/erabileremu.php"); // erabiltzaile eremura goaz
             exit;      
         }else{
             echo "ERROREA: Erabiltzaile hori ez da existitzen!!"; 

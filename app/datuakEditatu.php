@@ -15,14 +15,15 @@
 
         $sql = "SELECT * FROM `erabiltzaile` WHERE `erabIz` = '$erabIzena'"; // Bilatzen dugu erabiltzailea DB-an.
         $query = mysqli_query($con,$sql);
+        $nr = mysqli_num_rows($query);
         $row = mysqli_fetch_array($query); // Ez badago, $row null, bestela array bat izango da datuekin.
 
-        if($row == null) 
+        if($nr == 0) 
         {
             echo "Erabiltzaile hori ez dago datu basean, txarto sartu duzu.";
         }
         else{ // Erabiltzailea ondo sartu du, begiratuko dugu ea pasahitza ondo sartu duen.
-            if ($pass == $row['pasahitza']) // Hemendik pasatzen bada, esan nahi du erabiltzailea eta pasahitza ondo daudela.
+            if (password_verify($pass, $row['pasahitza'])) // Hemendik pasatzen bada, esan nahi du erabiltzailea eta pasahitza ondo daudela.
             {
                 // Datuak aldatuko ditugu.
                 // UPDATE agenda SET telefono='662142223' , email='albesanch@mimail.com' WHERE nombre='Alberto Sanchez'
@@ -104,6 +105,12 @@
                     <td>&nbsp;</td>
                     <td><p style="background-color: lightblue"><strong> Zure datuak: </strong></p></td>
                     <td>&nbsp;</td>
+                    
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><p style="background-color: lightblue"> Hemen datuak aldatu dezakezu, horretarako sartu zure erabiltzailea pasahitza eta gero "izena", "abizena" eta "emaila" aldatzeko sartu ezazu berria. </p></td>
+                    <td>&nbsp;</td>
                 </tr>
             </table>
         </div>
@@ -112,16 +119,12 @@
         <table>
             <tr>
 		        <th>ErabIz </th>
-		        <th>Pasahitza</th>
 		        <th>Izena</th>
 		        <th>Abizena</th>
 		        <th>Emaila</th>
-                <th>JaioData</th>
-                <th>NANa</th>
-                <th>Telefonoa</th>
 	        </tr>
             <?php
-                echo "<tr><td id ='erabiltzaile izena'>" . $erabIzena . "</td><td id = 'pasahitza'>" . $pasahitza . "</td><td id = 'izena'>" . $izena . "</td></td><td id = 'abizena'>" . $abizena . "</td></td><td id = 'emaila'>" . $emaila . "</td></td><td id = 'jaiotze data'>" . $jdat . "</td></td><td id = 'nan'>" . $nan . "</td></td><td id = 'telefonoa'>" . $tel . "</td></tr>";
+                echo "<tr><td id ='erabiltzaile izena'>" . $erabIzena .  "</td><td id = 'izena'>" . $izena . "</td></td><td id = 'abizena'>" . $abizena . "</td></td><td id = 'emaila'>" . $emaila . "</td></td><td id = 'jaiotze data'>";
             ?>
         </table>
     </div>

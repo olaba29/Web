@@ -126,7 +126,7 @@ else{
                         <td>&nbsp;</td>
                         <td><select id="aukeratu"name="aukerak[]" required> 
                             <option value="">Ikusi zure aukerak hemen.</option>
-                            <option value="libzer">Nire liburuen zerrenda ikusi.</option> 
+                            <option value="libzer">Liburuen zerrenda ikusi.</option> 
                             <option value="datAld">Nire datuak aldatu.</option> 
                             <option value="libDatAld">Liburu baten datuak aldatu.</option>
                         </select></td>
