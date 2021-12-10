@@ -2,6 +2,18 @@
 
     require 'dbkon.php'; //DBarekin konexioa egitea beharrezkoa baita
 
+    session_start();
+
+
+    $sql = "SELECT * FROM liburu;";
+    $result = $conexion->prepare($sql);
+    $result->execute();
+    $liburuak = $result->fetchAll();
+    //$query = mysqli_query($con,$sql);
+    //$row = mysqli_fetch_array($query);
+
+
+
 
 ?>
 
@@ -47,6 +59,35 @@
                     </tr>
                 </form>
                 </tr>
+        </table>
+    </div>
+
+    <div class="php">
+        <table id = "liburuTabla" class = "table-striped table-bordered" style = "width:100%">
+            <thead class = "text-center">    
+		        <th>Liburu Izena </th>
+		        <th>Idazle Izena</th>
+		        <th>Abizena</th>
+		        <th>Publikazio Urtea</th>
+		        <th>Orri kopurua</th>
+	        </thead>
+
+            <tbody>
+                <?php
+                    foreach($liburuak as $libro) {
+                ?>
+
+                <tr>
+                    <td><?php echo $libro['libIz']?></td>
+                    <td><?php echo $libro['egileIz']?></td>
+                    <td><?php echo $libro['egileAb']?></td>
+                    <td><?php echo $libro['publikazioUrte']?></td>
+                    <td><?php echo $libro['orriak']?></td>
+                </tr>
+
+                <?php } ?>
+
+            </tbody>
         </table>
     </div>
 </body>
