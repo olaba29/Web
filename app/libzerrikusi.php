@@ -1,22 +1,10 @@
 <?php
 
-    require 'dbkon.php'; //DBarekin konexioa egitea beharrezkoa baita
+require 'dbkon.php'; //DBarekin konexioa egitea beharrezkoa baita
 
-    session_start();
-
-
-    $sql = "SELECT * FROM liburu;";
-    $result = $conexion->prepare($sql);
-    $result->execute();
-    $liburuak = $result->fetchAll();
-    //$query = mysqli_query($con,$sql);
-    //$row = mysqli_fetch_array($query);
-
-
-
+//session_start();
 
 ?>
-
 <!DOCTYPE html>
 <!-- Goikoaren bidez artxiboaren extensioa espezifikatzen dugu (Badaezpada) -->
 
@@ -54,8 +42,7 @@
                 <form name="erabAukerak" class="inputak" action="erabileremu.php" method="POST">
                     <tr>
                         <td>&nbsp;</td>
-                        <input id="bilatu" type="text" name="bilatu" placeholder="Bilatu liburu bat." title="Letrak soilik. ADB: Garcia" required/>
-                        <td><input id="bilatuButton" type="submit" name="bilatuButton" value="Bilatu" title="Sakatu hemen liburua bilatzeko." /></td>
+                        <td><input id="bueltatuButton" type="button" name="bueltatuButton" value="Bueltatu" title="Sakatu hemen erabiltzaile eremura bueltatzeko." onclick="location.href='erabileremu.php'"/></td>
                     </tr>
                 </form>
                 </tr>
@@ -74,7 +61,17 @@
 
             <tbody>
                 <?php
+
+                    $db = new mysqli("db", "admin", "test", "database");
+                    $sql = "SELECT * FROM liburu;";
+                    $stmt = $db->prepare($sql);
+                    $stmt->execute();
+                    //grab a result set
+                    $resultSet = $stmt->get_result();
+                    //pull all results as an associative array
+                    $liburuak = $resultSet->fetch_all();
                     foreach($liburuak as $libro) {
+
                 ?>
 
                 <tr>
