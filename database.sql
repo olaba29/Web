@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Nov 07, 2021 at 09:49 PM
+-- Generation Time: Dec 15, 2021 at 08:42 PM
 -- Server version: 10.6.4-MariaDB-1:10.6.4+maria~focal
 -- PHP Version: 7.4.20
 
@@ -43,8 +43,9 @@ CREATE TABLE `erabiltzaile` (
 --
 
 INSERT INTO `erabiltzaile` (`erabIz`, `pasahitza`, `izena`, `abizena`, `telefonoa`, `nan`, `jaioData`, `emaila`) VALUES
-('martintxo', 'esku', 'Martin', 'Amezola', 678567832, '76545675J', '2001/07/12', 'martin@gmail.com'),
-('olaba', 'mano', 'Andoni', 'Olabarria', 678567832, '76545675J', '2001/07/12', 'andoni@gmail.com');
+('gonAlo2000', '$2y$10$fP7/NQg2EwWJi/pnvMKHdew859v10ep3MHU10jPwtuASHYLO4OWmS', 'Unai', 'Gonzalez', 692407503, '45673912Y', '2000/05/06', 'unai@gmail.com'),
+('mamezola01', '$2y$10$2.VnOEBraq2HOMCs79W/F.VaSEqmod9.XgPV8Po0jaeEsabirVBhK', 'Martin', 'Amezola', 689505097, '79135423J', '2000/06/04', 'martin@gmail.com'),
+('olabarria02', '$2y$10$ycIJG.BLywKmH5Cf5W5SXeJMIQklYIkkKx4/xYr9lzpiQRRT.eqCG', 'Andoni', 'Olabarria', 676787526, '79455561Z', '2001/07/12', 'andoni@gmail.com');
 
 -- --------------------------------------------------------
 
