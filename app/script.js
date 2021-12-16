@@ -1,71 +1,77 @@
 //Web Orriak erabiliko dituen funtzioak mierdaa
 //Adibidez form-ek lortutako balioak baliodunak diren konprobatu
-function datuakKonprobatu() {
-    //Esparru bakoitzarentzat aldagai bat, ondo: ald=1 edo gaizki=0
-    var izKon = 1;
-    var abKon = 1;
-    var emKon = 1;
-    var jdKon = 1;
-    var naKon = 1;
-    var tlKon = 1;
+function datuakKonprobatu(){
+    var k1 = 0;
+    var k2 = 0;
+    var k3 = 0;
+    var k4 = 0;
+    var k5 = 0;
+    var k6 = 0;
 
-    //if-etan errorea eman den konprobatzen da, eta egonez gero aldagaia 0 bilakatu
-    var izena = document.getElementById("izena").value;
-    if (!/[^a-zA-Z]/.test(izena)){
-        izKon = 0;
-    }
-    alert(izena);
-    alert(izKon);
-    var abizena = document.getElementById("abizena").value;
-    if (!/[^a-zA-Z]/.test(abizena)){
-        abKon = 0;
+    var izena = document.getElementById('izena').value; /*Izena id-aren bidez*/
+    if (/^[A-Za-z]+$/.test(izena)) { /* / / artean expresioa */
+        k1 = 1;
     }
 
-    //No muy seguro de que la expresión regular esté en formato acceptable para js ?¿
-    var email = document.getElementById("emaila").value;
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (!re.test(email)){
-        emKon = 0;
+    var abizena = document.getElementById('abizena').value;
+    if (/^[A-Za-z]+$/.test(abizena)) {
+        k2 = 1;
     }
 
-    var jaioData = document.getElementById("jaiotzeData").value;
-    const re2 = /[0-9]{4}[/]{1}[0-9]{2}[/]{1}[0-9]{2}/;
-    if (!re2.test(jaioData)){
-        jdKon = 0;
+    var emaila = document.getElementById('emaila').value;
+    if (/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(emaila)) {
+        k3 = 1;
     }
 
-    var nan = document.getElementById("nan").value;
-    const re3 = /[0-9]{8}[A-Za-z]{1}/;
-    if (!re3.test(nan)){
-        naKon = 0;
+    var jaiotzeData = document.getElementById('jaiotzeData').value;
+    if (/([0-9]{4})\/([0-9]{2})\/([0-9]{2})/.test(jaiotzeData)) {
+        k4 = 1;
     }
-    if (naKon == 1){
-        if (letraEgiaztatu(nan) != 1){
-            naKon = 0;
+
+    var nan = document.getElementById('nan').value;
+    if (/[0-9]{8}[A-Za-z]{1}/.test(nan)) {
+        if (letraEgiaztatu(nan)==1) {
+            k5 = 1;
         }
     }
 
-    var tlf = document.getElementById("telefonoZenbakia").value;
-    if (!/[0-9]{9}/.test(tlf)){
-        tlKon = 0;
+    //var tlfcc = document.getElementById('countryCode').value;
+    var tlfznb = document.getElementById('telefonoZenbakia').value;
+    //var tlf = tlfcc+tlfznb;
+    //alert(tlfznb);
+    if (/[0-9]{9}/.test(tlfznb)) {
+        k6 = 1;
     }
 
-    // - - - - - - - - - - - - - - - - - - - - - 
-    //Dena ondo doa? KK
-
-    if (izKon+abKon+emKon+jdKon+naKon+tlKon==6){
-        //Dena ondo joan da
-        //document.loginak.submit();
-        alert("Okey makey");
+    var ktot = k1 + k2 + k3 + k4 + k5 + k6;
+    if (ktot!=6) {
+        alert("Kaixo " + izena + " " + abizena + ", " +  emaila + " postarekin" + " eta " + jaiotzeData + " datan jaioa" + nan + " zenbakiarekin" +", ez zara Andoni Olabarria");
+    } else {
+        alert("Ongi etorri jefe");
     }
-    else{
-        window.alert("Errorea. Konprobatu datuak");
-    }
-
-
 }
 
 function letraEgiaztatu(dni) {
+    var array = [];
+    array = dni.split("");
+    let letra = array[8];
+    //alert(array.join(''));
+    //alert(letra);
+    array.pop();
+    //alert(array.join(''));
+    var znb = array.join('');
+    var nanzenbaki = parseInt(znb);
+    var pos = nanzenbaki%23;
+    var letrak = ["t","r","w","a","g","m","y","f","p","d","x","b","n","j","z","s","q","v","h","l","c","k","e"];
+    var emaitza = letrak[pos];
+    //alert(emaitza);
+    if (letra.toLowerCase()!=emaitza) {
+        return 0;
+    } else {
+        return 1;
+    }
+}
+/* Zaharra KK
     var array = JSON.parse("[" + dni + "]");
     var letra = array[9];
     array.splice(9,1);
@@ -79,13 +85,4 @@ function letraEgiaztatu(dni) {
     else{
         return 0;
     }
-}
-
-function existitzenDa() {
-    //Función para comprobar que los datos introducidos en login.html (el nombre de usuario), no existea ya en la BD
-
-}
-
-function alerta(){
-    window.alert("Botoia klikatu duzu.");
-}
+*/
