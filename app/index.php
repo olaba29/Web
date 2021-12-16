@@ -70,7 +70,7 @@
         
     </div>
 
-    <form name="loginak" class="inputak" action="index.php" method="POST" > <!-- Bere buruari parametroak pasa -->
+    <form name="loginak" id="loginak" class="inputak" action="index.php" method="POST" > <!-- Bere buruari parametroak pasa -->
         <table>
             <tr>
                 <td>&nbsp;</td>
@@ -110,7 +110,7 @@
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td><input id="erregistratu" type="submit" name="erregistratu" value="Erregistratu" title="Sakatu baino lehen eremu guztiak beterik egon behar dira" ></td> <!-- Hemen berez, js funtziotik pasa beharko zen -->
+                <td><input type="button" value="Erregistratu" title="Sakatu baino lehen eremu guztiak beterik egon behar dira" onclick="datuakKonprobatu()"></td>
                 <td>&nbsp;</td>
             </tr>
         </table>
