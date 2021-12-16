@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Dec 15, 2021 at 08:42 PM
+-- Generation Time: Dec 16, 2021 at 04:34 PM
 -- Server version: 10.6.4-MariaDB-1:10.6.4+maria~focal
 -- PHP Version: 7.4.20
 
@@ -66,9 +66,14 @@ CREATE TABLE `liburu` (
 --
 
 INSERT INTO `liburu` (`libIz`, `egileIz`, `egileAb`, `publikazioUrte`, `orriak`) VALUES
+('Confía en la gracia', 'Olvido', 'García', 2020, 366),
+('El hijo del chófer', 'Jordi', 'Amat', 2020, 122),
 ('El Imperio Final', 'Brandon', 'Sanderson', 2005, 500),
+('La madre de Frankenstein', 'Almudena', 'Grandes', 2020, 100),
+('Los Europeos', 'Orlando', 'Figes', 2020, 360),
 ('Metamorfosia', 'Franz', 'Kafka', 1916, 200),
-('Mikela Igela', 'Unknown', 'Unknown', 2010, 45);
+('Mikela Igela', 'Unknown', 'Unknown', 2010, 45),
+('Un Amor', 'Sara', 'Mesa', 2020, 245);
 
 --
 -- Indexes for dumped tables

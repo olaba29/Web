@@ -48,6 +48,19 @@ require 'dbkon.php'; //DBarekin konexioa egitea beharrezkoa baita
                 </tr>
         </table>
     </div>
+    <?php
+
+                $db = new mysqli("db", "admin", "test", "database");
+                $sql = "SELECT * FROM liburu;";
+                $stmt = $db->prepare($sql);
+                $stmt->execute();
+                //grab a result set
+                $resultSet = $stmt->get_result();
+                //pull all results as an associative array
+                $liburuak = $resultSet->fetch_all();
+                foreach($liburuak as $libro) {
+
+    ?>
 
     <div class="php">
         <table id = "liburuTabla" class = "table-striped table-bordered" style = "width:100%">
@@ -60,26 +73,12 @@ require 'dbkon.php'; //DBarekin konexioa egitea beharrezkoa baita
 	        </thead>
 
             <tbody>
-                <?php
-
-                    $db = new mysqli("db", "admin", "test", "database");
-                    $sql = "SELECT * FROM liburu;";
-                    $stmt = $db->prepare($sql);
-                    $stmt->execute();
-                    //grab a result set
-                    $resultSet = $stmt->get_result();
-                    //pull all results as an associative array
-                    $liburuak = $resultSet->fetch_all();
-                    foreach($liburuak as $libro) {
-
-                ?>
-
                 <tr>
-                    <td><?php echo $libro['libIz']?></td>
-                    <td><?php echo $libro['egileIz']?></td>
-                    <td><?php echo $libro['egileAb']?></td>
-                    <td><?php echo $libro['publikazioUrte']?></td>
-                    <td><?php echo $libro['orriak']?></td>
+                    <td><?php echo $libro[0]?></td>
+                    <td><?php echo $libro[1]?></td>
+                    <td><?php echo $libro[2]?></td>
+                    <td><?php echo $libro[3]?></td>
+                    <td><?php echo $libro[4]?></td>
                 </tr>
 
                 <?php } ?>
