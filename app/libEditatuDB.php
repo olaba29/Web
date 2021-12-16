@@ -6,9 +6,27 @@
 
 
     // Hartzen dugu sartu duen liburuaren izena:
-    $liburuIzena = $_POST['libIz'];
-    //TODO
+    
+    
 
+
+    if(isset($_POST['bilatuBotoia']))
+    {
+        $liburuIzena = $_POST['libIz'];
+        $db = new mysqli("db", "admin", "test", "database");
+
+        $stmt = $db->prepare("SELECT * FROM liburu WHERE libIz = ?");
+        $stmt->bind_param("i", $liburuIzena);
+        $stmt->execute();
+
+        //grab a result set
+        $resultSet = $sententzia->get_result();
+        //pull all results as an associative array
+        $liburuDatuak = $resultSet->fetch_all(); // Hau bilatu duen liburuaren datuak (existitzen bada)
+
+
+    }
+    
 
 
 
