@@ -5,6 +5,12 @@
     Session_start();
 
 
+    // Hartzen dugu sartu duen liburuaren izena:
+    $liburuIzena = $_POST['libIz'];
+    //TODO
+
+
+
 
 ?>
 
@@ -53,16 +59,17 @@
                 <td><p style="background-color: lightblue"><strong> Zein liburu editatu nahi duzu? </strong></p></td>
                 <td>&nbsp;</td>
             </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr> 
-            <tr>
-                <form name="editatuAukerak" class="inputak" action="libDatuakAldatu.php" method="POST">
-                <!-- TODO -->
-                </form>
             </tr>
+                <form name="bilatuLib" class="inputak" action="libEditatuDB.php" method="POST">
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td><input name="libIzena" id="libIzena" type="text"  placeholder="Liburuaren Izena" title="Liburu baten izena sartu, adibidez 'Metamorfosia'" required/></td>
+                        <td>&nbsp;</td>
+                        <td><input id="bilatuBotoia" type="submit" name="bilatu" value="Bilatu datubasean" /></td>
+                    </tr>
+                </form>
+
+                <tr>
             <tr>
                 <td><input id="bueltatuBot" type="button" name="bueltatuBot" value="Bueltatu" onclick="location.href='erabileremu.php'"/></td>
                 <td>&nbsp;</td>

@@ -54,7 +54,7 @@ INSERT INTO `erabiltzaile` (`erabIz`, `pasahitza`, `izena`, `abizena`, `telefono
 --
 
 CREATE TABLE `liburu` (
-  `libIz` varchar(30) NOT NULL,
+  `libIz` varchar(60) NOT NULL,
   `egileIz` varchar(30) NOT NULL,
   `egileAb` varchar(30) NOT NULL,
   `publikazioUrte` int(10) NOT NULL,
