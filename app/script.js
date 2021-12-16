@@ -45,9 +45,9 @@ function datuakKonprobatu(){
 
     var ktot = k1 + k2 + k3 + k4 + k5 + k6;
     if (ktot!=6) {
-        alert("Kaixo " + izena + " " + abizena + ", " +  emaila + " postarekin" + " eta " + jaiotzeData + " datan jaioa" + nan + " zenbakiarekin" +", ez zara Andoni Olabarria");
+        alert("APA " + izena + " " + abizena + ", " +  emaila + " postarekin" + " eta " + jaiotzeData + " datan jaioa" + nan + " zenbakiarekin" +", ez zara Andoni Olabarria");
     } else {
-        alert("Ongi etorri jefe");
+        document.getElementById('loginak').submit(); //Así submitea
     }
 }
 
