@@ -1,7 +1,7 @@
 /* Hemen index.html-ren estiloa eta alde bisuala landuko eta difinituko da */
 
 body {
-  background-image:url(../baliagarriak/Liburuak.webp);
+  background: url(../baliagarriak/Liburuak.webp);
 }
 
 .content {
