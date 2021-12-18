@@ -43,6 +43,9 @@
 
 <!-- Web Orriarren aurrekaria-->
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EHU Liburutegia - Sarrera</title>
     <link rel="stylesheet" href="styles.css">
     <script src="app/script.js" defer></script> 
@@ -50,13 +53,13 @@
 
 
 <div class="irudia">
-    <img src="https://images.freeimages.com/images/large-previews/76e/book-with-white-pages-1507326.jpg" alt="" width="300" height="200">
+    <img src="Baliagarriak/Liburu-apalaFondo.jpg" alt="" width="300" height="200">
 </div>
 
     <!-- Page content -->
 
     <!-- Web Orriaren gorputza-->
-<body background= "https://cdn.pixabay.com/photo/2016/02/16/21/07/books-1204029__340.jpg?__cf_chl_jschl_tk__=pmd_rg0UyIVTKotZFzKXG6L7RTRiwJwdw6vwz3E1204eRgg-1635866096-0-gqNtZGzNAjujcnBszQhR">
+<body background="Baliagarriak/Liburuak.webp">
     
 <div class="content">
     <div class="hasiera">
@@ -110,7 +113,7 @@
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td><input type="button" value="Erregistratu" title="Sakatu baino lehen eremu guztiak beterik egon behar dira" onclick="datuakKonprobatu()"></td>
+                <td><input type="button" value="Erregistratu" title="Sakatu baino lehen eremu guztiak beterik egon behar dira" onclick="alert("Tonto")"></td>
                 <td>&nbsp;</td>
             </tr>
         </table>

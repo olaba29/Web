@@ -1,6 +1,4 @@
-//Web Orriak erabiliko dituen funtzioak mierdaa
-//Adibidez form-ek lortutako balioak baliodunak diren konprobatu
-function datuakKonprobatu(){
+function alerta(){
     var k1 = 0;
     var k2 = 0;
     var k3 = 0;
@@ -45,10 +43,9 @@ function datuakKonprobatu(){
 
     var ktot = k1 + k2 + k3 + k4 + k5 + k6;
     if (ktot!=6) {
-        alert("APA " + izena + " " + abizena + ", " +  emaila + " postarekin" + " eta " + jaiotzeData + " datan jaioa" + nan + " zenbakiarekin" +", ez zara Andoni Olabarria");
+        alert("Kaixo " + izena + " " + abizena + ", " +  emaila + " postarekin" + " eta " + jaiotzeData + " datan jaioa" + nan + " zenbakiarekin" +", ez zara Andoni Olabarria");
     } else {
-        alert("Tonto");
-        //document.getElementById('loginak').submit(); //Así submitea
+        alert("Ongi etorri jefe");
     }
 }
 
@@ -72,7 +69,7 @@ function letraEgiaztatu(dni) {
         return 1;
     }
 }
-/* Zaharra KK
+/*
     var array = JSON.parse("[" + dni + "]");
     var letra = array[9];
     array.splice(9,1);

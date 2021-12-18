@@ -64,6 +64,9 @@ session_start(); // Session global variable erabili ahal izateko
 
 <!-- Web Orriarren aurrekaria-->
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EHU Liburutegia - Login</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -72,7 +75,7 @@ session_start(); // Session global variable erabili ahal izateko
 
 
 <div class="irudia">
-    <img src="https://media.istockphoto.com/photos/blue-book-picture-id1281955543?b=1&k=20&m=1281955543&s=170667a&w=0&h=ZmwacrjQewEU3RqJLYufA-Bi7JVOI2JgcB8X0o7vPeI=" alt="" width="300" height="200">
+    <img src="Baliagarriak/Liburu-apalaFondo.jpg" alt="" width="300" height="200">
 </div>
 
 <div class="content">
