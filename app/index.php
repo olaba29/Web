@@ -59,7 +59,7 @@
     <!-- Page content -->
 
     <!-- Web Orriaren gorputza-->
-<body>
+<body background="../baliagarriak/Liburuak.webp">
     
 <div class="content">
     <div class="hasiera">

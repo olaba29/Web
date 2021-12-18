@@ -48,7 +48,6 @@ function datuakKonprobatu(){
         alert("APA " + izena + " " + abizena + ", " +  emaila + " postarekin" + " eta " + jaiotzeData + " datan jaioa" + nan + " zenbakiarekin" +", ez zara Andoni Olabarria");
     } else {
         document.getElementById('loginak').submit();
-        //document.getElementById('loginak').submit(); //Así submitea
     }
 }
 
