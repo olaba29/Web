@@ -1,4 +1,9 @@
 /* Hemen index.html-ren estiloa eta alde bisuala landuko eta difinituko da */
+
+body {
+  background-image:url(../baliagarriak/Liburuak.webp);
+}
+
 .content {
   max-width: 350px;
   margin: auto;

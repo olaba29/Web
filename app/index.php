@@ -48,7 +48,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EHU Liburutegia - Sarrera</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="app/script.js" defer></script> 
+    <script src="script.js" defer></script> 
 </head>
 
 
@@ -59,7 +59,7 @@
     <!-- Page content -->
 
     <!-- Web Orriaren gorputza-->
-<body background="https://github.com/olaba29/Web/blob/master/Baliagarriak/Liburuak.webp?raw=true">
+<body>
     
 <div class="content">
     <div class="hasiera">
