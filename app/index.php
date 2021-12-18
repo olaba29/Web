@@ -48,18 +48,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EHU Liburutegia - Sarrera</title>
     <link rel="stylesheet" href="styles.css">
-    <script type="text/javascript" src="./script.js" defer></script> 
+    <script type="text/javascript" src="script.js" defer></script> 
 </head>
 
 
 <div class="irudia">
-    <img src="../baliagarriak/Liburu-apalaFondo.jpg" alt="" width="300" height="200">
+    <!--<img src="../baliagarriak/Liburu-apalaFondo.jpg" alt="" width="300" height="200">-->
+    <img src="Liburu-apalaFondo.jpg" alt="libro abierto" width="300" height="200">
+    
 </div>
 
     <!-- Page content -->
 
     <!-- Web Orriaren gorputza-->
-<body background="../baliagarriak/Liburuak.webp">
+<body background="Liburuak.webp">
     
 <div class="content">
     <div class="hasiera">
@@ -73,7 +75,7 @@
         
     </div>
 
-    <form name="loginak" id="loginak" class="inputak" action="index.php" method="POST" > <!-- Bere buruari parametroak pasa -->
+    <form name="loginak" id="loginak" class="inputak" action="login.php" method="POST" > <!-- Bere buruari parametroak pasa -->
         <table>
             <tr>
                 <td>&nbsp;</td>
@@ -113,7 +115,7 @@
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td><input id ="erregistratu" type="submit" value="Erregistratu" title="Sakatu baino lehen eremu guztiak beterik egon behar dira" ></td>
+                <td><input id ="erregistratu" type="button" value="Erregistratu" title="Sakatu baino lehen eremu guztiak beterik egon behar dira" onclick="datuakKonprobatu()" ></td>
                 <!--     onclick=datuakKonprobatu() kendu dut   -->
                 
                 <td>&nbsp;</td>

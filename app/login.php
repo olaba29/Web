@@ -5,23 +5,29 @@
 
 
     //Aldez aurretik index-etik lortutako aldagaik baditugu, orain erabiltzaile izena eta pasahitza lortuko ditugu
-    $_SESSION['erabIzena'] = $_POST['erabIzena'];
-    $_SESSION['pasahitza'] = $_POST['pasahitza'];
-    $erabIzena= $_POST['erabIzena'];
-    $pasahitza= $_POST['pasahitza'];
-    $pasahitzaBer= $_POST['pasahitzaBer'];
-    $izena = $_SESSION['izena'];
+    
+    /*$izena = $_SESSION['izena'];
     $abizena = $_SESSION['abizena'];
     $emaila = $_SESSION['emaila'];
     $jdat =  $_SESSION['jaiodat'];
     $nan = $_SESSION['nan'];
-    $tel = $_SESSION['telf'];
+    $tel = $_SESSION['telf'];*/
 
-
-
+    $izena = $_POST['izena'];
+    $abizena = $_POST['abizena'];
+    $emaila = $_POST['emaila'];
+    $jdat = $_POST['jaiotzeData'];
+    $nan = $_POST['nan'];
+    $tel = $_POST['telefonoZenbakia'];
 
     if(isset($_POST['sesioahasi']))
     {
+        $_SESSION['erabIzena'] = $_POST['erabIzena'];
+        $_SESSION['pasahitza'] = $_POST['pasahitza'];
+        $erabIzena= $_POST['erabIzena'];
+        $pasahitza= $_POST['pasahitza'];
+        $pasahitzaBer= $_POST['pasahitzaBer'];
+
         if($pasahitza == $pasahitzaBer){
             // Komandoa prestatu
             $sql ="SELECT * FROM `erabiltzaile` WHERE `erabIz` = '$erabIzena'"; // Hau da konprobatzeko ea erabiltzaile izen hori hartuta dagoen edo ez.
@@ -98,13 +104,13 @@
 
 
 <div class="irudia">
-    <img src="Baliagarriak/Liburu-apalaFondo.jpg" alt="" width="300" height="200">
+    <img src="Liburu-apalaFondo.jpg" alt="Libro Abierto" width="300" height="200">
 </div>
 
 <div class="content">
 
     <!-- Web Orriaren gorputza-->
-<body background="https://cdn.pixabay.com/photo/2016/02/16/21/07/books-1204029__340.jpg?__cf_chl_jschl_tk__=pmd_rg0UyIVTKotZFzKXG6L7RTRiwJwdw6vwz3E1204eRgg-1635866096-0-gqNtZGzNAjujcnBszQhR">
+<body background="Liburuak.webp">
     <div class="hasiera">
         <table>
             <tr>
