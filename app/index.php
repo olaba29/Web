@@ -53,13 +53,13 @@
 
 
 <div class="irudia">
-    <img src="Baliagarriak/Liburu-apalaFondo.jpg" alt="" width="300" height="200">
+    <img src="../baliagarriak/Liburu-apalaFondo.jpg" alt="" width="300" height="200">
 </div>
 
     <!-- Page content -->
 
     <!-- Web Orriaren gorputza-->
-<body background="Baliagarriak/Liburuak.webp">
+<body background="https://github.com/olaba29/Web/blob/master/Baliagarriak/Liburuak.webp?raw=true">
     
 <div class="content">
     <div class="hasiera">
