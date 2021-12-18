@@ -16,7 +16,7 @@
         $db = new mysqli("db", "admin", "test", "database");
 
         $stmt = $db->prepare("SELECT * FROM liburu WHERE libIz = ?");
-        $stmt->bind_param("i", $liburuIzena);
+        $stmt->bind_param("s", $liburuIzena);
         $stmt->execute();
 
         //grab a result set

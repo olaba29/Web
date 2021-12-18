@@ -9,7 +9,8 @@
 Session_start();
     $erabIz= $_POST['erabIzena'];
     $pasahitza= $_POST['pasahitza'];
-    $pasahitza_hasheatuta = password_hash($pasahitza, PASSWORD_DEFAULT);
+    $pasahitza .= "segurtasuna"; // Gatza sartzen diogu pasahitzari
+    $pasahitza_hasheatuta = password_hash($pasahitza, PASSWORD_DEFAULT); // hasheatzen dugu pasahitza eta gatza
 
     $sql ="SELECT * FROM `erabiltzaile` WHERE `erabIz` = '$erabIz'";
     $query = mysqli_query($con,$sql);

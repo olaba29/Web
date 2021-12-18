@@ -1,7 +1,7 @@
 <?php
     require 'dbkon.php'; //DBarekin konexioa egitea beharrezkoa baita
 
-session_start(); // Session global variable erabili ahal izateko
+    session_start(); // Session global variable erabili ahal izateko
 
 
     //Aldez aurretik index-etik lortutako aldagaik baditugu, orain erabiltzaile izena eta pasahitza lortuko ditugu
@@ -35,10 +35,33 @@ session_start(); // Session global variable erabili ahal izateko
                 // Komandoa prestatu
                 
                 // pasahitza hasheatu egingo dugu seguruago izateko
-                $pass_hasheatuta = password_hash($pasahitza, PASSWORD_DEFAULT);
-                $sql = "INSERT INTO erabiltzaile (erabIz, pasahitza, izena, abizena, telefonoa, nan, jaioData, emaila) VALUES ('$erabIzena', '$pass_hasheatuta', '$izena','$abizena','$tel','$nan','$jdat','$emaila')";
-                if (mysqli_query($con,$sql))
-                {
+                //lehenik sartuko diogu gatza (gure kasuan gatza "segurtasuna" hitza izango da)
+                $pasahitza .= "segurtasuna";     // orain $pasahitza aldagaiak "abc" balioa bazuen, "abcsegurtasuna" izango da.
+                $pass_hasheatuta = password_hash($pasahitza, PASSWORD_DEFAULT); // Hash bat sortzen dugu pasahitzarekin+gatzarekin
+                
+                /*
+                $db = new mysqli("db", "admin", "test", "database");
+
+                $stmt = $db->prepare("SELECT * FROM liburu WHERE libIz = ?");
+                $stmt->bind_param("i", $liburuIzena);
+                $stmt->execute();
+
+                //grab a result set
+                $resultSet = $sententzia->get_result();
+                //pull all results as an associative array
+                $liburuDatuak = $resultSet->fetch_all(); // Hau bilatu duen liburuaren datuak (existitzen bada)
+                */
+
+                $db = new mysqli("db", "admin", "test", "database");
+                //$stmt = $db->prepare("INSERT INTO erabiltzaile (erabIz, pasahitza, izena, abizena, telefonoa, nan, jaioData, emaila) VALUES ('$erabIzena', '$pass_hasheatuta', '$izena','$abizena','$tel','$nan','$jdat','$emaila')");
+                $stmt = $db->prepare("INSERT INTO erabiltzaile (erabIz, pasahitza, izena, abizena, telefonoa, nan, jaioData, emaila) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
+                // Esaten diogu zein motatako parametroak izango diren SQL injekzioa sahiesteko, s (string) eta i (integer)
+                $stmt->bind_param("ssssisss", $erabIzena, $pass_hasheatuta, $izena, $abizena, $tel, $nan, $jdat, $emaila);
+                // query-a exekutatzen dugu
+
+
+                if ($stmt->execute())
+                { // arrakasta badu sententzia, hemen sartuko da
                     //echo "Datuak DBan gorde dira."; ECHO HAU EZ DA BEHARREZKOA
                     header("Location: http://localhost:81/erabileremu.php");
                     exit;
