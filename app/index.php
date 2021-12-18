@@ -113,7 +113,7 @@
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td><input type="button" value="Erregistratu" title="Sakatu baino lehen eremu guztiak beterik egon behar dira" onclick="alert("Tonto")"></td>
+                <td><input type="button" value="Erregistratu" title="Sakatu baino lehen eremu guztiak beterik egon behar dira" onclick="datuakKonprobatu()"></td>
                 <td>&nbsp;</td>
             </tr>
         </table>
