@@ -42,7 +42,8 @@
                 
                 // pasahitza hasheatu egingo dugu seguruago izateko
                 //lehenik sartuko diogu gatza (gure kasuan gatza "segurtasuna" hitza izango da)
-                $pasahitza .= "segurtasuna";     // orain $pasahitza aldagaiak "abc" balioa bazuen, "abcsegurtasuna" izango da.
+                //$pasahitza .= "segurtasuna";     // orain $pasahitza aldagaiak "abc" balioa bazuen, "abcsegurtasuna" izango da.
+                // gatza autogeneratzen du password_hash() funtzioak
                 $pass_hasheatuta = password_hash($pasahitza, PASSWORD_DEFAULT); // Hash bat sortzen dugu pasahitzarekin+gatzarekin
                 
                 /*

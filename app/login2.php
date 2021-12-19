@@ -9,7 +9,8 @@
 Session_start();
     $erabIz= $_POST['erabIzena'];
     $pasahitza= $_POST['pasahitza'];
-    $pasahitza .= "segurtasuna"; // Gatza sartzen diogu pasahitzari
+    //$pasahitza .= "segurtasuna"; // Gatza sartzen diogu pasahitzari
+    // ez da beharrezkoa gatza sartzea password_hash() funtzioak sortzen baitu
     $pasahitza_hasheatuta = password_hash($pasahitza, PASSWORD_DEFAULT); // hasheatzen dugu pasahitza eta gatza
 
     $sql ="SELECT * FROM `erabiltzaile` WHERE `erabIz` = '$erabIz'";
