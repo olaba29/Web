@@ -72,13 +72,21 @@
                     //echo "Datuak DBan gorde dira."; ECHO HAU EZ DA BEHARREZKOA   
 
                     // hemen sartu behar ditugu datuak log taulan (arrakastatsua bai)
-                    // query = "INSERT INTO log()
 
                     header("Location: http://localhost:81/erabileremu.php");
                     exit;
                 }else{
 
                     // hemen sartu behar ditugu datuak log taulan (arrakastatsua ez)
+                    /*
+                    $db = new mysqli("db", "admin", "test", "database");
+                    $stmt = $db->prepare("INSERT INTO log (erabIzena, saiakeraOrdua, arrakastatsua) VALUES (?, ?, ?);");
+                    // Esaten diogu zein motatako parametroak sartuko diren.
+                    $stmt->bind_param("s", $erabIzena);
+
+                    FALTA POR CORREGIR
+                    
+                    */
                     echo "ERROREA: Ezin izan dira datuak ondo sartu DBan.";
                 }
             }else {
