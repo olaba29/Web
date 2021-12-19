@@ -6,33 +6,42 @@ session_start();
 
 if(isset($_POST['aukerak']))
 {
-    $auk = $_POST['aukerak'];
-    foreach ($auk as $value)
-    {
-        // AQUI TENEMOS QUE MIRAR A VER SI EL VALOR $VALUE ES:
-        // DATALD LIBZER O LIBDATALD
-        // Y DEPENDIENDO DE ESO REENVIARLO A EL PHP CORRESPONDIENTE
-
-        if($value == "libzer")
-        {
-            header("Location: http://localhost:81/libzerrikusi.php");
-
-        }elseif($value == "datAld")
-        {
-            header("Location: http://localhost:81/datuakEditatu.php");
-        }elseif($value == "libDatAld")
-        {
-            header("Location: http://localhost:81/libDatuakAldatu.php");
-        }else
-        {
-            echo "na de na";
-        }
+    if((time() - $_SESSION['azken_kon']) > 60) {
+        // SAIOA ITXI NAHI BADU
+        session_start();
+        session_destroy();
+        header("Location: http://localhost:81/index.php");
         exit;
+    }
+    else{
+        $auk = $_POST['aukerak'];
+        foreach ($auk as $value)
+        {
+            // AQUI TENEMOS QUE MIRAR A VER SI EL VALOR $VALUE ES:
+            // DATALD LIBZER O LIBDATALD
+            // Y DEPENDIENDO DE ESO REENVIARLO A EL PHP CORRESPONDIENTE
+    
+            if($value == "libzer")
+            {
+                header("Location: http://localhost:81/libzerrikusi.php");
+    
+            }elseif($value == "datAld")
+            {
+                header("Location: http://localhost:81/datuakEditatu.php");
+            }elseif($value == "libDatAld")
+            {
+                header("Location: http://localhost:81/libDatuakAldatu.php");
+            }else
+            {
+                echo "na de na";
+            }
+            exit;
+        }
     }
 }elseif(isset($_POST['bueltatuBot']))
 {
     // SAIOA ITXI NAHI BADU
-
+    session_start();
     session_destroy();
     header("Location: http://localhost:81/index.php");
     exit;

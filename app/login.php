@@ -64,13 +64,22 @@
             if ($emaitza) 
             {   
                 //echo("3");
+
+                $algorithm = MCRYPT_BLOWFISH;
+                $key = 'That golden key that opens the palace of eternity.';
+                $mode = MCRYPT_MODE_CBC;
+
+                $iv = mcrypt_create_iv(mcrypt_get_iv_size($algorithm, $mode), MCRYPT_DEV_URANDOM);
+
+                $encrypted_data = mcrypt_encrypt($algorithm, $key, $bankuzenb, $mode, $iv);
+                $bankEnk = base64_encode($encrypted_data);
                 // pasahitza hasheatu egingo dugu seguruago izateko
                 $pass_hasheatuta = password_hash($pasahitza, PASSWORD_DEFAULT); // Hash bat sortzen dugu pasahitzarekin
                 
                 $db = new mysqli("db", "admin", "test", "database");
                 //$db = new PDO("mysql:host=db;dbname=database", "admin", "test");
                 $stmt = $db->prepare("insert into erabiltzaile (erabIz, pasahitza, izena, abizena, telefonoa, nan, jaioData, emaila, bankuZenb) values (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                $stmt->bind_param("ssssisssi", $erabIz, $pass_hasheatuta, $izena, $abizena, $telefonoa, $nan, $jaioData, $emaila, $bankuzenb);
+                $stmt->bind_param("ssssisssi", $erabIz, $pass_hasheatuta, $izena, $abizena, $telefonoa, $nan, $jaioData, $emaila, $bankEnk);
                 $bool = $stmt->execute();
 
                 //echo("4");
