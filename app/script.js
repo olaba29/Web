@@ -45,7 +45,7 @@ function datuakKonprobatu(){
     }
 
     var bankuZenb = document.getElementById('bankuZenb').value;
-    if (/[0-9]{20}/.test(jaiotzeData)) {
+    if (/[0-9]{20}/.test(bankuZenb)) {
         k7 = 1;
     }
 
