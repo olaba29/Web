@@ -68,8 +68,8 @@
                 
                 $db = new mysqli("db", "admin", "test", "database");
                 //$db = new PDO("mysql:host=db;dbname=database", "admin", "test");
-                $stmt = $db->prepare("INSERT INTO `erabiltzaile` (`erabIz`, `pasahitza`, `izena`, `abizena`, `telefonoa`, `nan`, `jaioData`, `emaila`, `bankuZenb`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);");
-                $stmt->bind_param("ssssisssi", $erabIz, $pass_hasheatuta, $izena, $abizena, $telefonoa, $nan, $jaioData, $emaila, $bankuzenb);
+                $stmt = $db->prepare("INSERT INTO `erabiltzaile` (`erabIz`, `pasahitza`, `izena`, `abizena`, `telefonoa`, `nan`, `jaioData`, `emaila`, `bankuZenb`) VALUES ('$erabIz', '$pass_hasheatuta', '$izena', '$abizena', '$telefonoa', '$nan', '$jaioData', '$emaila', '$bankuzenb');");
+                //$stmt->bind_param("ssssisssi", $erabIz, $pass_hasheatuta, $izena, $abizena, $telefonoa, $nan, $jaioData, $emaila, $bankuzenb);
                 $bool = $stmt->execute();
                 /*
                 //grab a result set
