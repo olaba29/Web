@@ -44,12 +44,12 @@
             $liburuak = $resultSet->fetch_all();
             foreach($liburuak as $libro) { */
 
-            
+            //echo("1");
             $db = new mysqli("db", "admin", "test", "database");
-            $stmt = $db->prepare("SELECT * FROM `erabiltzaile` WHERE `erabIz` = ?;");
-            $stmt->bind_param('s', $erabIz);
-
-
+            $statement = $db->prepare("select * from erabiltzaile where erabIz = ?");
+            $statement->bind_param("s", $erabIz);
+            $emaitza = $statement->execute();
+            //echo("2");
             /*
 
 
@@ -61,16 +61,19 @@
 
              */
     
-            if ($stmt->execute()) 
+            if ($emaitza) 
             {   
+                //echo("3");
                 // pasahitza hasheatu egingo dugu seguruago izateko
                 $pass_hasheatuta = password_hash($pasahitza, PASSWORD_DEFAULT); // Hash bat sortzen dugu pasahitzarekin
                 
                 $db = new mysqli("db", "admin", "test", "database");
                 //$db = new PDO("mysql:host=db;dbname=database", "admin", "test");
-                $stmt = $db->prepare("INSERT INTO `erabiltzaile` (`erabIz`, `pasahitza`, `izena`, `abizena`, `telefonoa`, `nan`, `jaioData`, `emaila`, `bankuZenb`) VALUES ('$erabIz', '$pass_hasheatuta', '$izena', '$abizena', '$telefonoa', '$nan', '$jaioData', '$emaila', '$bankuzenb');");
-                //$stmt->bind_param("ssssisssi", $erabIz, $pass_hasheatuta, $izena, $abizena, $telefonoa, $nan, $jaioData, $emaila, $bankuzenb);
+                $stmt = $db->prepare("insert into erabiltzaile (erabIz, pasahitza, izena, abizena, telefonoa, nan, jaioData, emaila, bankuZenb) values (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                $stmt->bind_param("ssssisssi", $erabIz, $pass_hasheatuta, $izena, $abizena, $telefonoa, $nan, $jaioData, $emaila, $bankuzenb);
                 $bool = $stmt->execute();
+
+                //echo("4");
                 /*
                 //grab a result set
                 $resultSet = $sententzia->get_result();
