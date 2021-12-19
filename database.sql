@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Dec 16, 2021 at 04:34 PM
+-- Generation Time: Dec 19, 2021 at 12:33 PM
 -- Server version: 10.6.4-MariaDB-1:10.6.4+maria~focal
 -- PHP Version: 7.4.20
 
@@ -35,17 +35,18 @@ CREATE TABLE `erabiltzaile` (
   `telefonoa` int(11) NOT NULL,
   `nan` varchar(9) NOT NULL,
   `jaioData` varchar(10) NOT NULL,
-  `emaila` varchar(30) NOT NULL
+  `emaila` varchar(30) NOT NULL,
+  `bankuZenb` varchar(24) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `erabiltzaile`
 --
 
-INSERT INTO `erabiltzaile` (`erabIz`, `pasahitza`, `izena`, `abizena`, `telefonoa`, `nan`, `jaioData`, `emaila`) VALUES
-('gonAlo2000', '$2y$10$fP7/NQg2EwWJi/pnvMKHdew859v10ep3MHU10jPwtuASHYLO4OWmS', 'Unai', 'Gonzalez', 692407503, '45673912Y', '2000/05/06', 'unai@gmail.com'),
-('mamezola01', '$2y$10$2.VnOEBraq2HOMCs79W/F.VaSEqmod9.XgPV8Po0jaeEsabirVBhK', 'Martin', 'Amezola', 689505097, '79135423J', '2000/06/04', 'martin@gmail.com'),
-('olabarria02', '$2y$10$ycIJG.BLywKmH5Cf5W5SXeJMIQklYIkkKx4/xYr9lzpiQRRT.eqCG', 'Andoni', 'Olabarria', 676787526, '79455561Z', '2001/07/12', 'andoni@gmail.com');
+INSERT INTO `erabiltzaile` (`erabIz`, `pasahitza`, `izena`, `abizena`, `telefonoa`, `nan`, `jaioData`, `emaila`, `bankuZenb`) VALUES
+('gonAlo2000', '$2y$10$fP7/NQg2EwWJi/pnvMKHdew859v10ep3MHU10jPwtuASHYLO4OWmS', 'Unai', 'Gonzalez', 692407503, '45673912Y', '2000/05/06', 'unai@gmail.com', NULL),
+('mamezola01', '$2y$10$2.VnOEBraq2HOMCs79W/F.VaSEqmod9.XgPV8Po0jaeEsabirVBhK', 'Martin', 'Amezola', 689505097, '79135423J', '2000/06/04', 'martin@gmail.com', NULL),
+('olabarria02', '$2y$10$ycIJG.BLywKmH5Cf5W5SXeJMIQklYIkkKx4/xYr9lzpiQRRT.eqCG', 'Andoni', 'Olabarria', 676787526, '79455561Z', '2001/07/12', 'andoni@gmail.com', NULL);
 
 -- --------------------------------------------------------
 
@@ -75,6 +76,18 @@ INSERT INTO `liburu` (`libIz`, `egileIz`, `egileAb`, `publikazioUrte`, `orriak`)
 ('Mikela Igela', 'Unknown', 'Unknown', 2010, 45),
 ('Un Amor', 'Sara', 'Mesa', 2020, 245);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `log`
+--
+
+CREATE TABLE `log` (
+  `erabIzena` varchar(30) NOT NULL,
+  `saiakeraOrdua` datetime NOT NULL,
+  `arrakastatsua` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indexes for dumped tables
 --
@@ -91,6 +104,12 @@ ALTER TABLE `erabiltzaile`
 --
 ALTER TABLE `liburu`
   ADD PRIMARY KEY (`libIz`);
+
+--
+-- Indexes for table `log`
+--
+ALTER TABLE `log`
+  ADD PRIMARY KEY (`erabIzena`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

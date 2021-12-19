@@ -43,7 +43,7 @@
                 // pasahitza hasheatu egingo dugu seguruago izateko
                 //lehenik sartuko diogu gatza (gure kasuan gatza "segurtasuna" hitza izango da)
                 //$pasahitza .= "segurtasuna";     // orain $pasahitza aldagaiak "abc" balioa bazuen, "abcsegurtasuna" izango da.
-                // gatza autogeneratzen du password_hash() funtzioak
+                // gatza autogeneratzen du () funtzioak
                 $pass_hasheatuta = password_hash($pasahitza, PASSWORD_DEFAULT); // Hash bat sortzen dugu pasahitzarekin+gatzarekin
                 
                 /*
@@ -69,10 +69,16 @@
 
                 if ($stmt->execute())
                 { // arrakasta badu sententzia, hemen sartuko da
-                    //echo "Datuak DBan gorde dira."; ECHO HAU EZ DA BEHARREZKOA
+                    //echo "Datuak DBan gorde dira."; ECHO HAU EZ DA BEHARREZKOA   
+
+                    // hemen sartu behar ditugu datuak log taulan (arrakastatsua bai)
+                    // query = "INSERT INTO log()
+
                     header("Location: http://localhost:81/erabileremu.php");
                     exit;
                 }else{
+
+                    // hemen sartu behar ditugu datuak log taulan (arrakastatsua ez)
                     echo "ERROREA: Ezin izan dira datuak ondo sartu DBan.";
                 }
             }else {

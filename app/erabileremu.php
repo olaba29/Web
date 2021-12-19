@@ -29,6 +29,15 @@ if(isset($_POST['aukerak']))
         }
         exit;
     }
+}elseif(isset($_POST['bueltatuBot']))
+{
+    // SAIOA ITXI NAHI BADU
+    session_destroy();
+    header("Location: http://localhost:81/index.php");
+
+}else
+{
+    //EZER
 }
 
 
@@ -142,13 +151,15 @@ else{
             </table>
         </div>
         <div class="botoiak">
-            <table>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td><input id="bueltatuBot" type="button" name="bueltatuBot" value="Saioa Itxi" onclick="location.href='index.php'"/></td>
-                    <td>&nbsp;</td>
-                </tr>
-            </table>
+            <form name = "saioitxi" class = "inputak" action = "erabileremu.php" method = "POST">
+                <table>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td><input id="bueltatuBot" type="submit" name="bueltatuBot" value="Saioa Itxi"/></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
+            </form>
         </div>
     </div>
 <!-- ***********************************************************************************************************-->
