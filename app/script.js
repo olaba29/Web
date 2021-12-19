@@ -77,6 +77,7 @@ function letraEgiaztatu(dni) {
         return 1;
     }
 }
+
 /* Zaharra KK
     var array = JSON.parse("[" + dni + "]");
     var letra = array[9];

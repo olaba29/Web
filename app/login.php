@@ -156,10 +156,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EHU Liburutegia - Login</title>
     <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="script2.js" defer></script> 
 </head>
-
-<script type=“text/javascript” src="script2.js" ></script>
-
 
 <div class="irudia">
     <img src="Liburu-apalaFondo.jpg" alt="Libro Abierto" width="300" height="200">
@@ -179,7 +177,7 @@
         </table>
     </div>
 
-    <form name="loginak" class="inputak" action="login.php" method="POST">
+    <form id="loginak" name="loginak" class="inputak" action="login.php" method="POST">
         <table>
             <tr>
                 <td>&nbsp;</td>
@@ -198,7 +196,7 @@
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td><input id="sesioahasi" type="submit" name="sesioahasi" value="Sesioa hasi" title="Eremu guztiak betetakoan sakatu" /></td>
+                <td><input id="sesioahasi" type="button" name="sesioahasi" value="Sesioa hasi" title="Eremu guztiak betetakoan sakatu" onclick="pswSecure()" /></td>
                 <td>&nbsp;</td>
             </tr>
         </table>
