@@ -32,6 +32,7 @@ if(isset($_POST['aukerak']))
 }elseif(isset($_POST['bueltatuBot']))
 {
     // SAIOA ITXI NAHI BADU
+    session_start();
     session_destroy();
     header("Location: http://localhost:81/index.php");
 

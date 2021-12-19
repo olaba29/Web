@@ -7,6 +7,7 @@ function datuakKonprobatu(){
     var k4 = 0;
     var k5 = 0;
     var k6 = 0;
+    var k7 = 0;
 
     var izena = document.getElementById('izena').value; /*Izena id-aren bidez*/
     if (/^[A-Za-z]+$/.test(izena)) { /* / / artean expresioa */
@@ -43,8 +44,13 @@ function datuakKonprobatu(){
         k6 = 1;
     }
 
-    var ktot = k1 + k2 + k3 + k4 + k5 + k6;
-    if (ktot!=6) {
+    var bankuZenb = document.getElementById('bankuZenb').value;
+    if (/[0-9]{20}/.test(jaiotzeData)) {
+        k7 = 1;
+    }
+
+    var ktot = k1 + k2 + k3 + k4 + k5 + k6 + k7;
+    if (ktot!=7) {
         alert("APA " + izena + " " + abizena + ", " +  emaila + " postarekin" + " eta " + jaiotzeData + " datan jaioa" + nan + " zenbakiarekin" +", ez zara Andoni Olabarria");
     } else {
         document.getElementById('loginak').submit(); //Así submitea

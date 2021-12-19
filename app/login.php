@@ -66,6 +66,11 @@
                 // pasahitza hasheatu egingo dugu seguruago izateko
                 $pass_hasheatuta = password_hash($pasahitza, PASSWORD_DEFAULT); // Hash bat sortzen dugu pasahitzarekin
                 
+                $db = new mysqli("db", "admin", "test", "database");
+                //$db = new PDO("mysql:host=db;dbname=database", "admin", "test");
+                $stmt = $db->prepare("INSERT INTO `erabiltzaile` (`erabIz`, `pasahitza`, `izena`, `abizena`, `telefonoa`, `nan`, `jaioData`, `emaila`, `bankuZenb`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);");
+                $stmt->bind_param("ssssisssi", $erabIz, $pass_hasheatuta, $izena, $abizena, $telefonoa, $nan, $jaioData, $emaila, $bankuzenb);
+                $bool = $stmt->execute();
                 /*
                 //grab a result set
                 $resultSet = $sententzia->get_result();
@@ -73,13 +78,13 @@
                 $liburuDatuak = $resultSet->fetch_all(); // Hau bilatu duen liburuaren datuak (existitzen bada)
                 */
 
-               
                 //$stmt = $db->prepare("INSERT INTO erabiltzaile (erabIz, pasahitza, izena, abizena, telefonoa, nan, jaioData, emaila) VALUES ('$erabIzena', '$pass_hasheatuta', '$izena','$abizena','$tel','$nan','$jdat','$emaila')");
-
+                /*
                 try{
-                    //$db = new mysqli("db", "admin", "test", "database");
-                    $db = new PDO("mysql:host=db;dbname=database", "admin", "test");
-                    $stmt = $db->pdo->prepare("INSERT INTO `erabiltzaile` (`erabIz`, `pasahitza`, `izena`, `abizena`, `telefonoa`, `nan`, `jaioData`, `emaila`, `bankuZenb`) VALUES (:erabIz, :pass_hasheatuta, :izena, :abizena, :telefonoa, :nan, :jaioData, :emaila, :bankuZenb);");
+                    $db = new mysqli("db", "admin", "test", "database");
+                    //$db = new PDO("mysql:host=db;dbname=database", "admin", "test");
+                    $stmt = $db->prepare("INSERT INTO `erabiltzaile` (`erabIz`, `pasahitza`, `izena`, `abizena`, `telefonoa`, `nan`, `jaioData`, `emaila`, `bankuZenb`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);");
+                    $stmt->bind_param("ssssisssi", $erabIz, $pass_hasheatuta, $izena, $abizena, $telefonoa, $nan, $jaioData, $emaila, $bankuzenb);
                     // Esaten diogu zein motatako parametroak izango diren SQL injekzioa sahiesteko, s (string) eta i (integer)
                     $stmt->bindParam(":erabIz", $erabIz, PDO::PARAM_STR);
                     $stmt->bindParam(":pass_hasheatuta", $pass_hasheatuta, PDO::PARAM_STR);
@@ -96,7 +101,7 @@
                 {
                     echo $ex->getMessage();
                 }
-                
+                */
 
 
 
