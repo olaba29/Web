@@ -73,14 +73,16 @@
                 $liburuDatuak = $resultSet->fetch_all(); // Hau bilatu duen liburuaren datuak (existitzen bada)
                 */
 
-                $db = new mysqli("db", "admin", "test", "database");
+               
                 //$stmt = $db->prepare("INSERT INTO erabiltzaile (erabIz, pasahitza, izena, abizena, telefonoa, nan, jaioData, emaila) VALUES ('$erabIzena', '$pass_hasheatuta', '$izena','$abizena','$tel','$nan','$jdat','$emaila')");
 
                 try{
+                    //$db = new mysqli("db", "admin", "test", "database");
+                    $db = new PDO("mysql:host=db;dbname=database", "admin", "test");
                     $stmt = $db->pdo->prepare("INSERT INTO `erabiltzaile` (`erabIz`, `pasahitza`, `izena`, `abizena`, `telefonoa`, `nan`, `jaioData`, `emaila`, `bankuZenb`) VALUES (:erabIz, :pass_hasheatuta, :izena, :abizena, :telefonoa, :nan, :jaioData, :emaila, :bankuZenb);");
                     // Esaten diogu zein motatako parametroak izango diren SQL injekzioa sahiesteko, s (string) eta i (integer)
                     $stmt->bindParam(":erabIz", $erabIz, PDO::PARAM_STR);
-                    $stmt->bindParam(":pasahitza", $pass_hasheatuta, PDO::PARAM_STR);
+                    $stmt->bindParam(":pass_hasheatuta", $pass_hasheatuta, PDO::PARAM_STR);
                     $stmt->bindParam(":izena", $izena, PDO::PARAM_STR);
                     $stmt->bindParam(":abizena", $abizena, PDO::PARAM_STR);
                     $stmt->bindParam(":telefonoa", $telefonoa, PDO::PARAM_INT);
