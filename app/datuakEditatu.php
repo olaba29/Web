@@ -95,7 +95,7 @@
 
 
     <!-- Web Orriaren gorputza-->
-<body background="https://cdn.pixabay.com/photo/2016/02/16/21/07/books-1204029__340.jpg?__cf_chl_jschl_tk__=pmd_rg0UyIVTKotZFzKXG6L7RTRiwJwdw6vwz3E1204eRgg-1635866096-0-gqNtZGzNAjujcnBszQhR">
+<body background="Liburuak.webp">
     <div class="content">
         <div class="hasiera">
             <table>

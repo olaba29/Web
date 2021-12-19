@@ -52,13 +52,13 @@ Session_start();
 
 
 <div class="irudia">
-    <img src="https://media.istockphoto.com/photos/blue-book-picture-id1281955543?b=1&k=20&m=1281955543&s=170667a&w=0&h=ZmwacrjQewEU3RqJLYufA-Bi7JVOI2JgcB8X0o7vPeI=" alt="" width="300" height="200">
+<img src="Liburu-apalaFondo.jpg" alt="Libro Abierto" width="300" height="200">
 </div>
 
 <div class="content">
 
     <!-- Web Orriaren gorputza-->
-<body background="https://cdn.pixabay.com/photo/2016/02/16/21/07/books-1204029__340.jpg?__cf_chl_jschl_tk__=pmd_rg0UyIVTKotZFzKXG6L7RTRiwJwdw6vwz3E1204eRgg-1635866096-0-gqNtZGzNAjujcnBszQhR">
+<body background="Liburuak.webp">
     <div class="hasiera">
         <table>
             <tr>
