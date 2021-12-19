@@ -15,6 +15,7 @@ if(isset($_POST['aukerak']))
     }
     else{
         $auk = $_POST['aukerak'];
+        $_SESSION['azken_kon'] = time();
         foreach ($auk as $value)
         {
             // AQUI TENEMOS QUE MIRAR A VER SI EL VALOR $VALUE ES:
