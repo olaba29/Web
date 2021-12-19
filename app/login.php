@@ -13,12 +13,13 @@
     $nan = $_SESSION['nan'];
     $tel = $_SESSION['telf'];*/
 
-    $izena = $_POST['izena'];
-    $abizena = $_POST['abizena'];
-    $emaila = $_POST['emaila'];
-    $jdat = $_POST['jaiotzeData'];
-    $nan = $_POST['nan'];
-    $tel = $_POST['telefonoZenbakia'];
+    $izena = $_SESSION['izena'];
+    $abizena = $_SESSION['abizena'];
+    $emaila = $_SESSION['emaila'];
+    $jdat = $_SESSION['jaiodat'];
+    $nan = $_SESSION['nan'];
+    $tel = $_SESSION['telf'];
+    $bankuzenb = $_SESSION['bankuZenb'];
 
     if(isset($_POST['sesioahasi']))
     {
@@ -30,29 +31,41 @@
 
         if($pasahitza == $pasahitzaBer){
             // Komandoa prestatu
+
+            /* 
+            $db = new mysqli("db", "admin", "test", "database");
+            $sql = "SELECT * FROM liburu;";
+            $stmt = $db->prepare($sql);
+            $stmt->execute();
+            //grab a result set
+            $resultSet = $stmt->get_result();
+            //pull all results as an associative array
+            $liburuak = $resultSet->fetch_all();
+            foreach($liburuak as $libro) { */
+
+            
+            $db = new mysqli("db", "admin", "test", "database");
+            $stmt = $db->prepare("SELECT * FROM `erabiltzaile` WHERE `erabIz` = ?;");
+            $stmt->bind_param("s", $erabIzena);
+
+
+            /*
+
+
+
             $sql ="SELECT * FROM `erabiltzaile` WHERE `erabIz` = '$erabIzena'"; // Hau da konprobatzeko ea erabiltzaile izen hori hartuta dagoen edo ez.
             $query = mysqli_query($con,$sql);
             $nr = mysqli_num_rows($query); // nr (number rows) aldagaia 1 izango da erabiltzailea aurkitu badu eta 0 ez badu aurkitu.
             $row = mysqli_fetch_array($query); // Ez badago, row NULL balioa izango du. Eta sartu ahal dugu. Bestela, erabiltzaileizena emango digu.
+
+             */
     
-    
-            if ($row == NULL)
-            {
-                // Komandoa prestatu
-                
+            if ($stmt->execute()) 
+            {   
                 // pasahitza hasheatu egingo dugu seguruago izateko
-                //lehenik sartuko diogu gatza (gure kasuan gatza "segurtasuna" hitza izango da)
-                //$pasahitza .= "segurtasuna";     // orain $pasahitza aldagaiak "abc" balioa bazuen, "abcsegurtasuna" izango da.
-                // gatza autogeneratzen du () funtzioak
-                $pass_hasheatuta = password_hash($pasahitza, PASSWORD_DEFAULT); // Hash bat sortzen dugu pasahitzarekin+gatzarekin
+                $pass_hasheatuta = password_hash($pasahitza, PASSWORD_DEFAULT); // Hash bat sortzen dugu pasahitzarekin
                 
                 /*
-                $db = new mysqli("db", "admin", "test", "database");
-
-                $stmt = $db->prepare("SELECT * FROM liburu WHERE libIz = ?");
-                $stmt->bind_param("i", $liburuIzena);
-                $stmt->execute();
-
                 //grab a result set
                 $resultSet = $sententzia->get_result();
                 //pull all results as an associative array
@@ -61,9 +74,9 @@
 
                 $db = new mysqli("db", "admin", "test", "database");
                 //$stmt = $db->prepare("INSERT INTO erabiltzaile (erabIz, pasahitza, izena, abizena, telefonoa, nan, jaioData, emaila) VALUES ('$erabIzena', '$pass_hasheatuta', '$izena','$abizena','$tel','$nan','$jdat','$emaila')");
-                $stmt = $db->prepare("INSERT INTO erabiltzaile (erabIz, pasahitza, izena, abizena, telefonoa, nan, jaioData, emaila) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
+                $stmt = $db->prepare("INSERT INTO erabiltzaile (erabIz, pasahitza, izena, abizena, telefonoa, nan, jaioData, emaila, bankuZenb) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);");
                 // Esaten diogu zein motatako parametroak izango diren SQL injekzioa sahiesteko, s (string) eta i (integer)
-                $stmt->bind_param("ssssisss", $erabIzena, $pass_hasheatuta, $izena, $abizena, $tel, $nan, $jdat, $emaila);
+                $stmt->bind_param("ssssissss", $erabIzena, $pass_hasheatuta, $izena, $abizena, $tel, $nan, $jdat, $emaila, $bankuzenb);
                 // query-a exekutatzen dugu
 
 

@@ -11,6 +11,7 @@
         $_SESSION['jaiodat'] = $_POST['jaiotzeData'];
         $_SESSION['nan'] = $_POST['nan'];
         $_SESSION['telf'] = $_POST['telefonoZenbakia'];
+        $_SESSION['bankuZenb'] = $_POST['bankuZenb'];
         header("Location: http://localhost:81/login.php");
         exit;
     }
@@ -111,6 +112,11 @@
                     <option value="">+972</option>
                 </select>   
                 <input class="form-control" id="telefonoZenbakia" type="tel" name="telefonoZenbakia" placeholder="Telefono Zenbakia" maxlenght="9" pattern="[0-9]{9}" title="9 zenbakiz osatuta." required/></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><input class="form-control" id="bankuZenb" type="text" name="bankuZenb" placeholder="Banku Kontu Zenbakia" /></td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
