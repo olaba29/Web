@@ -12,11 +12,11 @@
 
     if(isset($_POST['bilatuBotoia']))
     {
-        $liburuIzena = $_POST['libIz'];
+        $libIz = $_POST['libIzena'];
         $db = new mysqli("db", "admin", "test", "database");
 
-        $stmt = $db->prepare("SELECT * FROM liburu WHERE libIz = ?");
-        $stmt->bind_param("s", $liburuIzena);
+        $stmt = $db->prepare("SELECT * FROM `liburu` WHERE `libIz` = ?;");
+        $stmt->bind_param('s', $libIz);
         $stmt->execute();
 
         //grab a result set
@@ -25,6 +25,10 @@
         $liburuDatuak = $resultSet->fetch_all(); // Hau bilatu duen liburuaren datuak (existitzen bada)
 
 
+        foreach($liburuDatuak as $array)
+        {
+            echo $array[0];
+        }
     }
     
 

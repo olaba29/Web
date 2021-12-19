@@ -16,16 +16,17 @@
     $izena = $_SESSION['izena'];
     $abizena = $_SESSION['abizena'];
     $emaila = $_SESSION['emaila'];
-    $jdat = $_SESSION['jaiodat'];
+    $jaioData = $_SESSION['jaiodat'];
     $nan = $_SESSION['nan'];
-    $tel = $_SESSION['telf'];
-    $bankuzenb = $_SESSION['bankuZenb'];
+    $telefonoa = $_SESSION['telf'];
+    $bankuzenb = "proba";
+    //$bankuzenb = $_SESSION['bankuZenb'];
 
     if(isset($_POST['sesioahasi']))
     {
         $_SESSION['erabIzena'] = $_POST['erabIzena'];
         $_SESSION['pasahitza'] = $_POST['pasahitza'];
-        $erabIzena= $_POST['erabIzena'];
+        $erabIz= $_POST['erabIzena'];
         $pasahitza= $_POST['pasahitza'];
         $pasahitzaBer= $_POST['pasahitzaBer'];
 
@@ -46,7 +47,7 @@
             
             $db = new mysqli("db", "admin", "test", "database");
             $stmt = $db->prepare("SELECT * FROM `erabiltzaile` WHERE `erabIz` = ?;");
-            $stmt->bind_param("s", $erabIzena);
+            $stmt->bind_param('s', $erabIz);
 
 
             /*
@@ -74,13 +75,35 @@
 
                 $db = new mysqli("db", "admin", "test", "database");
                 //$stmt = $db->prepare("INSERT INTO erabiltzaile (erabIz, pasahitza, izena, abizena, telefonoa, nan, jaioData, emaila) VALUES ('$erabIzena', '$pass_hasheatuta', '$izena','$abizena','$tel','$nan','$jdat','$emaila')");
-                $stmt = $db->prepare("INSERT INTO erabiltzaile (erabIz, pasahitza, izena, abizena, telefonoa, nan, jaioData, emaila, bankuZenb) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);");
-                // Esaten diogu zein motatako parametroak izango diren SQL injekzioa sahiesteko, s (string) eta i (integer)
-                $stmt->bind_param("ssssissss", $erabIzena, $pass_hasheatuta, $izena, $abizena, $tel, $nan, $jdat, $emaila, $bankuzenb);
+
+                try{
+                    $stmt = $db->pdo->prepare("INSERT INTO `erabiltzaile` (`erabIz`, `pasahitza`, `izena`, `abizena`, `telefonoa`, `nan`, `jaioData`, `emaila`, `bankuZenb`) VALUES (:erabIz, :pass_hasheatuta, :izena, :abizena, :telefonoa, :nan, :jaioData, :emaila, :bankuZenb);");
+                    // Esaten diogu zein motatako parametroak izango diren SQL injekzioa sahiesteko, s (string) eta i (integer)
+                    $stmt->bindParam(":erabIz", $erabIz, PDO::PARAM_STR);
+                    $stmt->bindParam(":pasahitza", $pass_hasheatuta, PDO::PARAM_STR);
+                    $stmt->bindParam(":izena", $izena, PDO::PARAM_STR);
+                    $stmt->bindParam(":abizena", $abizena, PDO::PARAM_STR);
+                    $stmt->bindParam(":telefonoa", $telefonoa, PDO::PARAM_INT);
+                    $stmt->bindParam(":nan", $nan, PDO::PARAM_STR);
+                    $stmt->bindParam(":jaioData", $jaioData, PDO::PARAM_STR);
+                    $stmt->bindParam(":emaila", $emaila, PDO::PARAM_STR);
+                    $stmt->bindParam(":bankuZenb", $bankuzenb, PDO::PARAM_STR);
+                    $bool = $stmt->execute();
+
+                }catch(PDOException $ex)
+                {
+                    echo $ex->getMessage();
+                }
+                
+
+
+
+
+                //$stmt->bind_param('ssssissss', $erabIz, $pass_hasheatuta, $izena, $abizena, $tel, $nan, $jdat, $emaila, $bankuzenb);
                 // query-a exekutatzen dugu
 
 
-                if ($stmt->execute())
+                if ($bool)
                 { // arrakasta badu sententzia, hemen sartuko da
                     //echo "Datuak DBan gorde dira."; ECHO HAU EZ DA BEHARREZKOA   
 
